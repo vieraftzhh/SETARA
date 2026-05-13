@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <title>SETARA - Pemberdayaan Disabilitas</title>
+
+  <!-- Font cantik dari internet -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ===== DASAR ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FAFAF8;
+      color: #1a1a18;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ===== NAVIGASI ===== */
+    .navbar {
+      background-color: white;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F6E56;
+      text-decoration: none;
+    }
+
+    .navbar-logo span {
+      color: #BA7517;
+    }
+
+    .navbar-links a {
+      text-decoration: none;
+      color: #5F5E5A;
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 24px;
+    }
+
+    .navbar-links a:hover {
+      color: #0F6E56;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #E1F5EE, #FAEEDA, #E6F1FB);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      font-weight: 800;
+      color: #1a1a18;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: #0F6E56;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #4a4a48;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    /* ===== TOMBOL ===== */
+    .btn-hijau {
+      background-color: #0F6E56;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn-hijau:hover {
+      background-color: #085041;
+    }
+
+    .btn-putih {
+      background-color: white;
+      color: #0F6E56;
+      padding: 14px 28px;
+      border-radius: 24px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid #9FE1CB;
+    }
+
+    /* ===== SEKSI UMUM ===== */
+    .seksi {
+      padding: 80px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .seksi-label {
+      display: inline-block;
+      background-color: #E1F5EE;
+      color: #0F6E56;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .seksi h2 {
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .seksi > p {
+      color: #4a4a48;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    /* ===== KARTU JENIS (grid 2 kolom karena 4 jenis) ===== */
+    .kartu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .kartu {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .kartu:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .kartu-ikon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .kartu h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .kartu p {
+      font-size: 14px;
+      color: #5F5E5A;
+      margin-bottom: 8px;
+    }
+
+    .kartu ul {
+      padding-left: 18px;
+      font-size: 13px;
+      color: #888780;
+    }
+
+    /* ===== DAFTAR INKLUSI ===== */
+    .inklusi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .inklusi-item {
+      background: #F1EFE8;
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .inklusi-nomor {
+      background: #0F6E56;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .inklusi-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .inklusi-item p {
+      font-size: 13px;
+      color: #5F5E5A;
+    }
+
+    /* ===== KARTU REKRUTMEN ===== */
+    .rekrutmen-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .rekrutmen-kartu {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .rekrutmen-kartu:hover {
+      border-color: #9FE1CB;
+    }
+
+    .nama-perusahaan {
+      font-size: 12px;
+      color: #888780;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .rekrutmen-kartu h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #1a1a18;
+    }
+
+    .rekrutmen-meta {
+      font-size: 13px;
+      color: #5F5E5A;
+      margin-bottom: 6px;
+    }
+
+    .tombol-lamar {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      padding: 10px;
+      background: #E1F5EE;
+      color: #0F6E56;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .tombol-lamar:hover {
+      background: #0F6E56;
+      color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #1a1a18;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+    }
+
+    .footer span {
+      color: #FAC775;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== BAGIAN 1 & 2: NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">SET<span>A</span>RA</a>
+    <div class="navbar-links">
+      <a href="#pengertian">Tentang Disabilitas</a>
+      <a href="#jenis">Jenis</a>
+      <a href="#inklusi">Inklusi</a>
+      <a href="#rekrutmen">Rekrutmen</a>
+    </div>
+  </nav>
+
+  <!-- HERO (tambahan baru) -->
+  <div class="hero">
+    <h1>Bersama Menuju Indonesia yang <span>Setara</span></h1>
+    <p>Platform Pemberdayaan Penyandang Disabilitas Indonesia</p>
+    <div class="hero-buttons">
+      <a href="#rekrutmen" class="btn-hijau">Lihat Rekrutmen</a>
+      <a href="#pengertian" class="btn-putih">Pelajari Lebih Lanjut</a>
+    </div>
+  </div>
+
+  <!-- ===== BAGIAN 3: PENGERTIAN ===== -->
+  <div class="seksi" id="pengertian">
+    <span class="seksi-label">Pengertian</span>
+    <h2>Apa itu Disabilitas?</h2>
+    <p>
+      Disabilitas adalah kondisi di mana seseorang mengalami keterbatasan
+      fisik, intelektual, mental, dan/atau sensorik dalam jangka waktu lama
+      yang dapat menghambat partisipasi penuh dalam masyarakat.
+    </p>
+    <p style="color: #4a4a48;">
+      Di Indonesia, hak penyandang disabilitas dilindungi oleh
+      <strong>UU No. 8 Tahun 2016</strong> tentang Penyandang Disabilitas.
+    </p>
+  </div>
+
+  <!-- ===== BAGIAN 4: JENIS DISABILITAS ===== -->
+  <div style="background: white; padding: 20px 0;">
+    <div class="seksi" id="jenis">
+      <span class="seksi-label">Jenis</span>
+      <h2>Jenis-Jenis Disabilitas</h2>
+      <p>Setiap individu memiliki kebutuhan dan potensi yang unik.</p>
+
+      <div class="kartu-grid">
+
+        <div class="kartu">
+          <div class="kartu-ikon">🦽</div>
+          <h3>1. Disabilitas Fisik</h3>
+          <p>Keterbatasan fungsi gerak dan mobilitas tubuh.</p>
+          <ul>
+            <li>Cerebral Palsy</li>
+            <li>Amputasi</li>
+            <li>Polio</li>
+          </ul>
+        </div>
+
+        <div class="kartu">
+          <div class="kartu-ikon">👁️👂</div>
+          <h3>2. Disabilitas Sensorik</h3>
+          <p>Keterbatasan fungsi penglihatan atau pendengaran.</p>
+          <ul>
+            <li>Tunanetra (gangguan penglihatan)</li>
+            <li>Tunarungu (gangguan pendengaran)</li>
+          </ul>
+        </div>
+
+        <div class="kartu">
+          <div class="kartu-ikon">🧠</div>
+          <h3>3. Disabilitas Intelektual</h3>
+          <p>Keterbatasan dalam fungsi intelektual dan perilaku adaptif.</p>
+          <ul>
+            <li>Down Syndrome</li>
+          </ul>
+        </div>
+
+        <div class="kartu">
+          <div class="kartu-ikon">💭</div>
+          <h3>4. Disabilitas Mental</h3>
+          <p>Gangguan dalam fungsi pikir, emosi, dan perilaku.</p>
+          <ul>
+            <li>Skizofrenia</li>
+            <li>Bipolar</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BAGIAN 5: INKLUSI ===== -->
+  <div class="seksi" id="inklusi">
+    <span class="seksi-label">Inklusi</span>
+    <h2>Yang Perlu Diperhatikan dalam Inklusi</h2>
+    <p>Inklusi sejati menciptakan lingkungan di mana semua orang dapat berpartisipasi penuh.</p>
+
+    <div class="inklusi-grid">
+
+      <div class="inklusi-item">
+        <div class="inklusi-nomor">1</div>
+        <div>
+          <h4>Aksesibilitas Fisik</h4>
+          <p>Ramp kursi roda, lift, guiding block, toilet aksesibel.</p>
+        </div>
+      </div>
+
+      <div class="inklusi-item">
+        <div class="inklusi-nomor">2</div>
+        <div>
+          <h4>Aksesibilitas Komunikasi</h4>
+          <p>Bahasa isyarat, braille, subtitle, dan audio deskripsi.</p>
+        </div>
+      </div>
+
+      <div class="inklusi-item">
+        <div class="inklusi-nomor">3</div>
+        <div>
+          <h4>Akomodasi di Tempat Kerja</h4>
+          <p>Fleksibilitas jadwal, teknologi assistif, modifikasi tugas.</p>
+        </div>
+      </div>
+
+      <div class="inklusi-item">
+        <div class="inklusi-nomor">4</div>
+        <div>
+          <h4>Pendidikan Inklusif</h4>
+          <p>Semua anak berhak mendapat pendidikan berkualitas.</p>
+        </div>
+      </div>
+
+      <div class="inklusi-item">
+        <div class="inklusi-nomor">5</div>
+        <div>
+          <h4>Eliminasi Stigma</h4>
+          <p>Ubah pandangan dari belas kasihan menjadi penghormatan hak.</p>
+        </div>
+      </div>
+
+      <div class="inklusi-item">
+        <div class="inklusi-nomor">6</div>
+        <div>
+          <h4>Perlindungan Hukum</h4>
+          <p>Hak dijamin oleh UU No. 8/2016 di semua bidang kehidupan.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== BAGIAN 6: REKRUTMEN ===== -->
+  <div style="background: white; padding: 20px 0;">
+    <div class="seksi" id="rekrutmen">
+      <span class="seksi-label">Rekrutmen</span>
+      <h2>Rekrutmen Kerja untuk Disabilitas</h2>
+      <p>Perusahaan inklusif yang membuka peluang bagi penyandang disabilitas.</p>
+
+      <div class="rekrutmen-grid">
+
+        <div class="rekrutmen-kartu">
+          <p class="nama-perusahaan">Tokopedia</p>
+          <h3>UI/UX Accessibility Designer</h3>
+          <p class="rekrutmen-meta">📍 Jakarta</p>
+          <p class="rekrutmen-meta">💼 Full Time</p>
+          <p class="rekrutmen-meta">💰 Rp 8–14 Juta</p>
+          <a href="#" class="tombol-lamar">Lamar Sekarang</a>
+        </div>
+
+        <div class="rekrutmen-kartu">
+          <p class="nama-perusahaan">Kemendikbudristek</p>
+          <h3>Penerjemah Bahasa Isyarat</h3>
+          <p class="rekrutmen-meta">📍 Jakarta / Remote</p>
+          <p class="rekrutmen-meta">💼 Kontrak</p>
+          <p class="rekrutmen-meta">💰 Rp 6–10 Juta</p>
+          <a href="#" class="tombol-lamar">Lamar Sekarang</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BAGIAN 7: FOOTER ===== -->
+  <div class="footer">
+    <p>© 2026 <span>SETARA</span> — Dibuat untuk Indonesia yang inklusif.</p>
+    <p style="margin-top: 8px; font-style: italic;">Bukan tentang kita, tanpa kita.</p>
+  </div>
+
+</body>
+</html>
