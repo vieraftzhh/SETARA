@@ -295,23 +295,47 @@
 
   <!-- PANEL CHAT -->
   <div id="chat-panel" style="display:none; position:fixed; bottom:24px; right:90px; width:320px; background:white; border-radius:16px; box-shadow:0 8px 32px rgba(0,0,0,0.15); z-index:998; overflow:hidden;">
+
+    <!-- Header -->
     <div style="background:#0F6E56; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
-      <div>
-        <p style="color:white; font-weight:700; font-size:14px; margin:0;">💬 Hubungi Kami</p>
-        <p style="color:rgba(255,255,255,0.75); font-size:12px; margin:0;">Tim SETARA siap membantu</p>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:16px;">💬</div>
+        <div>
+          <p style="color:white; font-weight:700; font-size:14px; margin:0;">Hubungi Tim SETARA</p>
+          <p style="color:rgba(255,255,255,0.75); font-size:11px; margin:0;">● Balas via WhatsApp</p>
+        </div>
       </div>
-      <button onclick="toggleChat()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer;">×</button>
+      <button onclick="toggleChat()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer; line-height:1;">×</button>
     </div>
-    <div id="chat-messages" style="padding:16px; height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#FAFAF8;">
-      <div style="background:#E1F5EE; border-radius:12px 12px 12px 0; padding:10px 14px; font-size:13px; max-width:85%;">
-        Halo! 👋 Selamat datang di SETARA. Ada yang bisa kami bantu?
+
+    <!-- Pesan -->
+    <div id="chat-messages" style="padding:16px; height:240px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#FAFAF8;">
+      <!-- Pesan sambutan -->
+      <div style="display:flex; gap:8px; align-items:flex-end;">
+        <div style="width:28px; height:28px; border-radius:50%; background:#0F6E56; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;">S</div>
+        <div style="background:#E1F5EE; border-radius:12px 12px 12px 0; padding:10px 14px; font-size:13px; max-width:85%; line-height:1.5;">
+          Halo! 👋 Selamat datang di <strong>SETARA</strong>.<br>Ketik pesan Anda dan kami akan membalas melalui WhatsApp.
+        </div>
       </div>
     </div>
-    <div style="padding:12px 16px; border-top:1px solid #e5e5e5; display:flex; gap:8px; background:white;">
-      <input id="chat-input" type="text" placeholder="Ketik pesan..." onkeydown="if(event.key==='Enter') kirimPesan()"
-        style="flex:1; border:1px solid #e5e5e5; border-radius:20px; padding:8px 14px; font-size:13px; outline:none; font-family:inherit;">
-      <button onclick="kirimPesan()" style="background:#0F6E56; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; color:white; font-size:16px;">➤</button>
+
+    <!-- Input -->
+    <div style="padding:12px 16px; border-top:1px solid #e5e5e5; background:white;">
+      <div style="display:flex; gap:8px; margin-bottom:8px;">
+        <input id="chat-input" type="text" placeholder="Ketik pesan Anda..."
+          onkeydown="if(event.key==='Enter') kirimPesan()"
+          style="flex:1; border:1px solid #e5e5e5; border-radius:20px; padding:8px 14px; font-size:13px; outline:none; font-family:inherit; background:#FAFAF8;">
+        <button onclick="kirimPesan()"
+          style="background:#0F6E56; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; color:white; font-size:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">➤</button>
+      </div>
+      <!-- Tombol langsung WA -->
+      <a href="https://wa.me/6281325026288" target="_blank"
+        style="display:flex; align-items:center; justify-content:center; gap:6px; background:#25D366; color:white; border-radius:20px; padding:8px; font-size:12px; font-weight:700; text-decoration:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.523 5.847L.057 23.882a.5.5 0 0 0 .613.613l6.037-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.512-5.228-1.403l-.374-.217-3.878.942.96-3.878-.234-.384A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Chat Langsung di WhatsApp
+      </a>
     </div>
+
   </div>
 
   <!-- HERO -->
@@ -329,10 +353,7 @@
     <span class="seksi-label">Tentang Kami</span>
     <h2>Apa itu SETARA?</h2>
     <p>
-      SETARA atau <strong>Sistem Edukasi dan Akses Tenaga Kerja Disabilitas</strong> adalah platform digital pemberdayaan yang dirancang untuk memperkuat keberfungsian sosial penyandang disabilitas di sektor ketenagakerjaan. Berdasarkan UU No. 8 Tahun 2016, kami menyediakan kesempatan pelatihan keterampilan serta akses informasi lowongan kerja yang ramah disabilitas.
-    </p>
-    <p style="color:#4a4a48; margin-top:16px;">
-      Melalui SETARA, kami tidak hanya menyajikan data, tetapi membangun harapan. Kami percaya setiap individu memiliki hak yang sama untuk berkarya dan mandiri.
+      SETARA atau <strong>Sistem Edukasi dan Akses Tenaga Kerja Disabilitas</strong> adalah platform digital pemberdayaan yang dirancang untuk memperkuat keberfungsian sosial penyandang disabilitas di sektor ketenagakerjaan. Berdasarkan UU No. 8 Tahun 2016, kami menyediakan kesempatan pelatihan keterampilan serta akses informasi lowongan kerja yang ramah disabilitas. Melalui SETARA, kami tidak hanya menyajikan data, tetapi membangun harapan. Kami percaya setiap individu memiliki hak yang sama untuk berkarya dan mandiri.
     </p>
   </div>
 
