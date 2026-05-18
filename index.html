@@ -540,9 +540,20 @@
           </div>
           <p style="font-size:12px; color:#888780; margin-top:6px;">Tonton panduan ini sebelum mengupload CV Anda.</p>
         </div>
+<button class="form-kirim" onclick="kirimLamaran()">Kirim Lamaran ✉️</button>
+      </div>
 
-        <button class="form-kirim" onclick="kirimLamaran()">Kirim Lamaran ✉️</button>
+      <div class="pesan-sukses" id="pesan-sukses">
+        <div class="ikon-sukses">🎉</div>
+        <h3>Lamaran Terkirim!</h3>
+        <p>Terima kasih telah melamar. Tim rekruter akan menghubungi Anda dalam 3–5 hari kerja.</p>
+        <br>
+        <button class="form-kirim" onclick="tutupModal()" style="width:auto; padding:12px 32px;">Tutup</button>
+      </div>
+    </div>
   </div>
+
+  <!-- TOMBOL AKSESIBILITAS (pojok kanan bawah) -->
 
   <!-- TOMBOL AKSESIBILITAS (pojok kanan bawah) -->
   <button class="akses-btn" onclick="toggleAkses()" title="Pengaturan Aksesibilitas">
