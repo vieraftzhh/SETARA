@@ -3,18 +3,9 @@
 
 <head>
   <title>SETARA - Pemberdayaan Disabilitas</title>
-
-  <!-- Font cantik dari internet -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-
   <style>
-
-    /* ===== DASAR ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -24,284 +15,269 @@
       line-height: 1.7;
     }
 
-    /* ===== NAVIGASI ===== */
+    /* NAVIGASI */
     .navbar {
       background-color: white;
       border-bottom: 1px solid #e5e5e5;
       padding: 16px 40px;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
     .navbar-logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: #0F6E56;
-      text-decoration: none;
+      font-size: 22px; font-weight: 800;
+      color: #0F6E56; text-decoration: none; flex-shrink: 0;
     }
-
-    .navbar-logo span {
-      color: #BA7517;
+    .navbar-logo span { color: #BA7517; }
+    .navbar-links {
+      display: flex; flex-direction: row;
+      align-items: center; gap: 0;
     }
-
     .navbar-links a {
-      text-decoration: none;
-      color: #5F5E5A;
-      font-size: 14px;
-      font-weight: 600;
-      margin-left: 24px;
+      text-decoration: none; color: #5F5E5A;
+      font-size: 14px; font-weight: 600; margin-left: 24px;
     }
+    .navbar-links a:hover { color: #0F6E56; }
 
-    .navbar-links a:hover {
-      color: #0F6E56;
-    }
-
-    /* ===== HERO ===== */
+    /* HERO */
     .hero {
       background: linear-gradient(135deg, #E1F5EE, #FAEEDA, #E6F1FB);
-      padding: 80px 40px;
-      text-align: center;
+      padding: 80px 40px; text-align: center;
     }
+    .hero h1 { font-size: 52px; font-weight: 800; margin-bottom: 16px; }
+    .hero h1 span { color: #0F6E56; }
+    .hero p { font-size: 18px; color: #4a4a48; margin-bottom: 32px; }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; }
 
-    .hero h1 {
-      font-size: 52px;
-      font-weight: 800;
-      color: #1a1a18;
-      margin-bottom: 16px;
-    }
-
-    .hero h1 span {
-      color: #0F6E56;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #4a4a48;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-    }
-
-    /* ===== TOMBOL ===== */
+    /* TOMBOL */
     .btn-hijau {
-      background-color: #0F6E56;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 24px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
+      background-color: #0F6E56; color: white;
+      padding: 14px 28px; border-radius: 24px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
     }
-
-    .btn-hijau:hover {
-      background-color: #085041;
-    }
-
+    .btn-hijau:hover { background-color: #085041; }
     .btn-putih {
-      background-color: white;
-      color: #0F6E56;
-      padding: 14px 28px;
-      border-radius: 24px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
+      background-color: white; color: #0F6E56;
+      padding: 14px 28px; border-radius: 24px;
+      text-decoration: none; font-weight: 600; font-size: 14px;
       border: 1px solid #9FE1CB;
     }
 
-    /* ===== SEKSI UMUM ===== */
-    .seksi {
-      padding: 80px 40px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    /* SEKSI */
+    .seksi { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
     .seksi-label {
-      display: inline-block;
-      background-color: #E1F5EE;
-      color: #0F6E56;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 4px;
-      margin-bottom: 12px;
+      display: inline-block; background-color: #E1F5EE; color: #0F6E56;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 4px 12px;
+      border-radius: 4px; margin-bottom: 12px;
     }
+    .seksi h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+    .seksi > p { color: #4a4a48; max-width: 600px; margin-bottom: 40px; }
 
-    .seksi h2 {
-      font-size: 36px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .seksi > p {
-      color: #4a4a48;
-      max-width: 600px;
-      margin-bottom: 40px;
-    }
-
-    /* ===== KARTU JENIS (grid 2 kolom karena 4 jenis) ===== */
-    .kartu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
+    /* KARTU JENIS */
+    .kartu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .kartu {
-      background: white;
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
-      padding: 24px;
+      background: white; border: 1px solid #e5e5e5;
+      border-radius: 12px; padding: 24px;
     }
+    .kartu:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .kartu-ikon { font-size: 28px; margin-bottom: 12px; }
+    .kartu h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .kartu p { font-size: 14px; color: #5F5E5A; margin-bottom: 8px; }
+    .kartu ul { padding-left: 18px; font-size: 13px; color: #888780; }
 
-    .kartu:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
-
-    .kartu-ikon {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-
-    .kartu h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .kartu p {
-      font-size: 14px;
-      color: #5F5E5A;
-      margin-bottom: 8px;
-    }
-
-    .kartu ul {
-      padding-left: 18px;
-      font-size: 13px;
-      color: #888780;
-    }
-
-    /* ===== DAFTAR INKLUSI ===== */
-    .inklusi-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
+    /* INKLUSI */
+    .inklusi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .inklusi-item {
-      background: #F1EFE8;
-      border-radius: 12px;
-      padding: 20px 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
+      background: #F1EFE8; border-radius: 12px;
+      padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start;
     }
-
     .inklusi-nomor {
-      background: #0F6E56;
-      color: white;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-      flex-shrink: 0;
+      background: #0F6E56; color: white;
+      width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; flex-shrink: 0;
     }
+    .inklusi-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .inklusi-item p { font-size: 13px; color: #5F5E5A; }
 
-    .inklusi-item h4 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .inklusi-item p {
-      font-size: 13px;
-      color: #5F5E5A;
-    }
-
-    /* ===== KARTU REKRUTMEN ===== */
-    .rekrutmen-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
+    /* REKRUTMEN */
+    .rekrutmen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .rekrutmen-kartu {
-      background: white;
-      border: 1px solid #e5e5e5;
-      border-radius: 12px;
-      padding: 24px;
+      background: white; border: 1px solid #e5e5e5;
+      border-radius: 12px; padding: 24px;
     }
-
-    .rekrutmen-kartu:hover {
-      border-color: #9FE1CB;
-    }
-
-    .nama-perusahaan {
-      font-size: 12px;
-      color: #888780;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .rekrutmen-kartu h3 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 14px;
-      color: #1a1a18;
-    }
-
-    .rekrutmen-meta {
-      font-size: 13px;
-      color: #5F5E5A;
-      margin-bottom: 6px;
-    }
-
+    .rekrutmen-kartu:hover { border-color: #9FE1CB; }
+    .nama-perusahaan { font-size: 12px; color: #888780; font-weight: 600; margin-bottom: 6px; }
+    .rekrutmen-kartu h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
+    .rekrutmen-meta { font-size: 13px; color: #5F5E5A; margin-bottom: 6px; }
     .tombol-lamar {
-      display: block;
-      text-align: center;
-      margin-top: 16px;
-      padding: 10px;
-      background: #E1F5EE;
-      color: #0F6E56;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
+      display: block; width: 100%; text-align: center;
+      margin-top: 16px; padding: 10px;
+      background: #E1F5EE; color: #0F6E56;
+      border-radius: 8px; border: none;
+      font-weight: 600; font-size: 13px;
+      cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
     }
+    .tombol-lamar:hover { background: #0F6E56; color: white; }
 
-    .tombol-lamar:hover {
-      background: #0F6E56;
-      color: white;
+    /* POPUP OVERLAY */
+    .overlay {
+      display: none; position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55); z-index: 999;
+      justify-content: center; align-items: center;
     }
+    .overlay.aktif { display: flex; }
+    .modal {
+      background: white; border-radius: 16px;
+      padding: 36px; width: 100%; max-width: 520px;
+      max-height: 90vh; overflow-y: auto; position: relative;
+    }
+    .modal-judul { font-size: 20px; font-weight: 800; margin-bottom: 4px; }
+    .modal-subjudul { font-size: 13px; color: #888780; margin-bottom: 24px; }
+    .modal-tutup {
+      position: absolute; top: 16px; right: 20px;
+      font-size: 22px; cursor: pointer; color: #888780;
+      background: none; border: none; line-height: 1;
+    }
+    .modal-tutup:hover { color: #1a1a18; }
+    .form-grup { margin-bottom: 16px; }
+    .form-grup label {
+      display: block; font-size: 13px; font-weight: 700;
+      color: #1a1a18; margin-bottom: 6px;
+    }
+    .form-grup input,
+    .form-grup select,
+    .form-grup textarea {
+      width: 100%; padding: 10px 14px;
+      border: 1px solid #e5e5e5; border-radius: 8px;
+      font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1a1a18; background: #FAFAF8; outline: none;
+    }
+    .form-grup input:focus,
+    .form-grup select:focus,
+    .form-grup textarea:focus { border-color: #0F6E56; background: white; }
+    .form-grup textarea { resize: vertical; min-height: 90px; }
+    .form-grup input[type="file"] { padding: 8px; font-size: 13px; }
+    .form-kirim {
+      width: 100%; padding: 14px;
+      background: #1A8ED4; color: white; border: 3px solid #6EC6F0;
+      border-radius: 24px; font-size: 15px; font-weight: 700;
+      cursor: pointer; margin-top: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .form-kirim:hover { background: #085041; }
+    .pesan-sukses { display: none; text-align: center; padding: 24px 0 8px; }
+    .pesan-sukses .ikon-sukses { font-size: 48px; margin-bottom: 12px; }
+    .pesan-sukses h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+    .pesan-sukses p { font-size: 14px; color: #5F5E5A; }
 
-    /* ===== FOOTER ===== */
+    /* ===== AKSESIBILITAS ===== */
+    .akses-btn {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 54px; height: 54px; border-radius: 50%;
+      background: #1A8ED4; color: white; border: 3px solid #6EC6F0;
+      font-size: 24px; cursor: pointer; z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .akses-btn:hover { background: #1578B5; }
+    .akses-panel {
+      display: none; position: fixed;
+      bottom: 90px; right: 24px;
+      background: white; border-radius: 16px;
+      border: 1px solid #e5e5e5; padding: 20px;
+      width: 290px; z-index: 1000;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    }
+    .akses-panel.aktif { display: block; }
+    .akses-panel h4 {
+      font-size: 12px; font-weight: 700; color: #888780;
+      text-transform: uppercase; letter-spacing: 1.2px;
+      margin-bottom: 14px;
+    }
+    .akses-baris {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      background: #F1EFE8; border-radius: 10px;
+      padding: 10px 14px; margin-bottom: 10px;
+    }
+    .akses-baris:last-child { margin-bottom: 0; }
+    .akses-kiri { display: flex; flex-direction: column; }
+    .akses-kiri span { font-size: 14px; font-weight: 600; color: #1a1a18; }
+    .akses-kiri small { font-size: 11px; color: #5F5E5A; margin-top: 2px; }
+    .tombol-tts { display: flex; gap: 6px; }
+    .tombol-tts button {
+      padding: 5px 11px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .btn-mulai { background: #1A8ED4; color: white; border: 3px solid #6EC6F0; }
+    .btn-mulai:hover { background: #085041; }
+    .btn-stop { background: white; color: #5F5E5A; border: 1px solid #e5e5e5; }
+    .tombol-ukuran { display: flex; align-items: center; gap: 6px; }
+    .tombol-ukuran button {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: white; border: 1px solid #e5e5e5;
+      color: #1a1a18; font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1;
+    }
+    .tombol-ukuran button:hover { background: #E1F5EE; }
+    .tombol-ukuran span { font-size: 12px; color: #5F5E5A; min-width: 36px; text-align: center; font-weight: 600; }
+    .toggle-switch {
+      width: 44px; height: 24px; border-radius: 12px;
+      background: #D3D1C7; border: none; cursor: pointer;
+      position: relative; transition: background 0.25s; flex-shrink: 0;
+    }
+    .toggle-switch::after {
+      content: ''; width: 18px; height: 18px;
+      background: white; border-radius: 50%;
+      position: absolute; top: 3px; left: 3px;
+      transition: left 0.25s;
+    }
+    .toggle-switch.aktif { background: #0F6E56; }
+    .toggle-switch.aktif::after { left: 23px; }
+
+    /* Mode kontras tinggi */
+    body.kontras-tinggi { background: #000 !important; color: #fff !important; }
+    body.kontras-tinggi .navbar,
+    body.kontras-tinggi .kartu,
+    body.kontras-tinggi .rekrutmen-kartu,
+    body.kontras-tinggi .modal,
+    body.kontras-tinggi .akses-panel { background: #000 !important; border-color: #fff !important; }
+    body.kontras-tinggi h1, body.kontras-tinggi h2,
+    body.kontras-tinggi h3, body.kontras-tinggi h4,
+    body.kontras-tinggi p, body.kontras-tinggi li,
+    body.kontras-tinggi a, body.kontras-tinggi label,
+    body.kontras-tinggi span { color: #fff !important; }
+    body.kontras-tinggi .seksi-label { background: #fff !important; color: #000 !important; }
+    body.kontras-tinggi .inklusi-item { background: #111 !important; border: 1px solid #fff !important; }
+    body.kontras-tinggi .hero { background: #111 !important; }
+    body.kontras-tinggi .footer { background: #111 !important; border-top: 1px solid #fff; }
+    body.kontras-tinggi .akses-baris { background: #222 !important; border: 1px solid #555; }
+    body.kontras-tinggi .akses-btn { background: #fff !important; color: #000 !important; }
+
+    /* FOOTER */
     .footer {
-      background: #1a1a18;
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 40px;
-      font-size: 14px;
+      background: #1a1a18; color: rgba(255,255,255,0.6);
+      text-align: center; padding: 40px; font-size: 14px;
     }
-
-    .footer span {
-      color: #FAC775;
-    }
-
+    .footer span { color: #FAC775; }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== BAGIAN 1 & 2: NAVBAR ===== -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <a href="#" class="navbar-logo">SET<span>A</span>RA</a>
     <div class="navbar-links">
@@ -309,12 +285,38 @@
       <a href="#jenis">Jenis</a>
       <a href="#inklusi">Inklusi</a>
       <a href="#rekrutmen">Rekrutmen</a>
+      <button onclick="toggleChat()" style="background:none; border:none; cursor:pointer; margin-left:24px; padding:6px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:36px; height:36px; border-radius:8px; transition:background 0.2s;" onmouseover="this.style.background='#E1F5EE'" onmouseout="this.style.background='none'">
+        <span style="display:block; width:20px; height:2px; background:#0F6E56; border-radius:2px;"></span>
+        <span style="display:block; width:20px; height:2px; background:#0F6E56; border-radius:2px;"></span>
+        <span style="display:block; width:20px; height:2px; background:#0F6E56; border-radius:2px;"></span>
+      </button>
     </div>
   </nav>
 
-  <!-- HERO (tambahan baru) -->
+  <!-- PANEL CHAT -->
+  <div id="chat-panel" style="display:none; position:fixed; bottom:24px; right:90px; width:320px; background:white; border-radius:16px; box-shadow:0 8px 32px rgba(0,0,0,0.15); z-index:998; overflow:hidden;">
+    <div style="background:#0F6E56; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <p style="color:white; font-weight:700; font-size:14px; margin:0;">💬 Hubungi Kami</p>
+        <p style="color:rgba(255,255,255,0.75); font-size:12px; margin:0;">Tim SETARA siap membantu</p>
+      </div>
+      <button onclick="toggleChat()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer;">×</button>
+    </div>
+    <div id="chat-messages" style="padding:16px; height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#FAFAF8;">
+      <div style="background:#E1F5EE; border-radius:12px 12px 12px 0; padding:10px 14px; font-size:13px; max-width:85%;">
+        Halo! 👋 Selamat datang di SETARA. Ada yang bisa kami bantu?
+      </div>
+    </div>
+    <div style="padding:12px 16px; border-top:1px solid #e5e5e5; display:flex; gap:8px; background:white;">
+      <input id="chat-input" type="text" placeholder="Ketik pesan..." onkeydown="if(event.key==='Enter') kirimPesan()"
+        style="flex:1; border:1px solid #e5e5e5; border-radius:20px; padding:8px 14px; font-size:13px; outline:none; font-family:inherit;">
+      <button onclick="kirimPesan()" style="background:#0F6E56; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; color:white; font-size:16px;">➤</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
   <div class="hero">
-    <h1>Bersama Menuju Indonesia yang <span>Setara</span></h1>
+    <h1>Bersama Menuju Indonesia yang <span>SETARA</span></h1>
     <p>Platform Pemberdayaan Penyandang Disabilitas Indonesia</p>
     <div class="hero-buttons">
       <a href="#rekrutmen" class="btn-hijau">Lihat Rekrutmen</a>
@@ -322,169 +324,340 @@
     </div>
   </div>
 
-  <!-- ===== BAGIAN 3: PENGERTIAN ===== -->
-  <div class="seksi" id="pengertian">
-    <span class="seksi-label">Pengertian</span>
-    <h2>Apa itu Disabilitas?</h2>
+  <!-- TENTANG -->
+  <div class="seksi" id="tentang">
+    <span class="seksi-label">Tentang Kami</span>
+    <h2>Apa itu SETARA?</h2>
     <p>
-      Disabilitas adalah kondisi di mana seseorang mengalami keterbatasan
-      fisik, intelektual, mental, dan/atau sensorik dalam jangka waktu lama
-      yang dapat menghambat partisipasi penuh dalam masyarakat.
+      SETARA atau <strong>Sistem Edukasi dan Akses Tenaga Kerja Disabilitas</strong> adalah platform digital pemberdayaan yang dirancang untuk memperkuat keberfungsian sosial penyandang disabilitas di sektor ketenagakerjaan. Berdasarkan UU No. 8 Tahun 2016, kami menyediakan kesempatan pelatihan keterampilan serta akses informasi lowongan kerja yang ramah disabilitas.
     </p>
-    <p style="color: #4a4a48;">
-      Di Indonesia, hak penyandang disabilitas dilindungi oleh
-      <strong>UU No. 8 Tahun 2016</strong> tentang Penyandang Disabilitas.
+    <p style="color:#4a4a48; margin-top:16px;">
+      Melalui SETARA, kami tidak hanya menyajikan data, tetapi membangun harapan. Kami percaya setiap individu memiliki hak yang sama untuk berkarya dan mandiri.
     </p>
   </div>
 
-  <!-- ===== BAGIAN 4: JENIS DISABILITAS ===== -->
-  <div style="background: white; padding: 20px 0;">
-    <div class="seksi" id="jenis">
-      <span class="seksi-label">Jenis</span>
-      <h2>Jenis-Jenis Disabilitas</h2>
-      <p>Setiap individu memiliki kebutuhan dan potensi yang unik.</p>
+  <!-- PENGERTIAN -->
+  <div style="background:white; padding:20px 0;">
+    <div class="seksi" id="pengertian">
+      <span class="seksi-label">Pengertian</span>
+      <h2>Apa itu Disabilitas?</h2>
+      <p>
+        Disabilitas adalah kondisi di mana seseorang mengalami keterbatasan fisik, intelektual, mental, dan/atau sensorik dalam jangka waktu lama yang dapat menghambat partisipasi penuh dalam masyarakat.
+        Di Indonesia, hak penyandang disabilitas dilindungi oleh <strong>UU No. 8 Tahun 2016</strong>.
+      </p>
+    </div>
+  </div>
 
-      <div class="kartu-grid">
-
-        <div class="kartu">
-          <div class="kartu-ikon">🦽</div>
-          <h3>1. Disabilitas Fisik</h3>
-          <p>Keterbatasan fungsi gerak dan mobilitas tubuh.</p>
-          <ul>
-            <li>Cerebral Palsy</li>
-            <li>Amputasi</li>
-            <li>Polio</li>
-          </ul>
-        </div>
-
-        <div class="kartu">
-          <div class="kartu-ikon">👁️👂</div>
-          <h3>2. Disabilitas Sensorik</h3>
-          <p>Keterbatasan fungsi penglihatan atau pendengaran.</p>
-          <ul>
-            <li>Tunanetra (gangguan penglihatan)</li>
-            <li>Tunarungu (gangguan pendengaran)</li>
-          </ul>
-        </div>
-
-        <div class="kartu">
-          <div class="kartu-ikon">🧠</div>
-          <h3>3. Disabilitas Intelektual</h3>
-          <p>Keterbatasan dalam fungsi intelektual dan perilaku adaptif.</p>
-          <ul>
-            <li>Down Syndrome</li>
-          </ul>
-        </div>
-
-        <div class="kartu">
-          <div class="kartu-ikon">💭</div>
-          <h3>4. Disabilitas Mental</h3>
-          <p>Gangguan dalam fungsi pikir, emosi, dan perilaku.</p>
-          <ul>
-            <li>Skizofrenia</li>
-            <li>Bipolar</li>
-          </ul>
-        </div>
-
+  <!-- JENIS -->
+  <div class="seksi" id="jenis">
+    <span class="seksi-label">Jenis</span>
+    <h2>Jenis-Jenis Disabilitas</h2>
+    <p>Setiap individu memiliki kebutuhan dan potensi yang unik.</p>
+    <div class="kartu-grid">
+      <div class="kartu">
+        <div class="kartu-ikon">🦽</div>
+        <h3>1. Disabilitas Fisik</h3>
+        <p>Keterbatasan fungsi gerak dan mobilitas tubuh.</p>
+        <ul><li>Cerebral Palsy</li><li>Amputasi</li><li>Polio</li></ul>
+      </div>
+      <div class="kartu">
+        <div class="kartu-ikon">👁️</div>
+        <h3>2. Disabilitas Sensorik</h3>
+        <p>Keterbatasan fungsi penglihatan atau pendengaran.</p>
+        <ul><li>Tunanetra</li><li>Tunarungu</li></ul>
+      </div>
+      <div class="kartu">
+        <div class="kartu-ikon">🧠</div>
+        <h3>3. Disabilitas Intelektual</h3>
+        <p>Keterbatasan fungsi intelektual dan perilaku adaptif.</p>
+        <ul><li>Down Syndrome</li></ul>
+      </div>
+      <div class="kartu">
+        <div class="kartu-ikon">💭</div>
+        <h3>4. Disabilitas Mental</h3>
+        <p>Gangguan dalam fungsi pikir, emosi, dan perilaku.</p>
+        <ul><li>Skizofrenia</li><li>Bipolar</li></ul>
       </div>
     </div>
   </div>
 
-  <!-- ===== BAGIAN 5: INKLUSI ===== -->
-  <div class="seksi" id="inklusi">
-    <span class="seksi-label">Inklusi</span>
-    <h2>Yang Perlu Diperhatikan dalam Inklusi</h2>
-    <p>Inklusi sejati menciptakan lingkungan di mana semua orang dapat berpartisipasi penuh.</p>
-
-    <div class="inklusi-grid">
-
-      <div class="inklusi-item">
-        <div class="inklusi-nomor">1</div>
-        <div>
-          <h4>Aksesibilitas Fisik</h4>
-          <p>Ramp kursi roda, lift, guiding block, toilet aksesibel.</p>
+  <!-- INKLUSI -->
+  <div style="background:white; padding:20px 0;">
+    <div class="seksi" id="inklusi">
+      <span class="seksi-label">Inklusi</span>
+      <h2>Yang Perlu Diperhatikan dalam Inklusi</h2>
+      <p>Inklusi sejati menciptakan lingkungan di mana semua orang dapat berpartisipasi penuh.</p>
+      <div class="inklusi-grid">
+        <div class="inklusi-item">
+          <div class="inklusi-nomor">1</div>
+          <div><h4>Aksesibilitas Fisik</h4><p>Ramp kursi roda, lift, guiding block, toilet aksesibel.</p></div>
         </div>
-      </div>
-
-      <div class="inklusi-item">
-        <div class="inklusi-nomor">2</div>
-        <div>
-          <h4>Aksesibilitas Komunikasi</h4>
-          <p>Bahasa isyarat, braille, subtitle, dan audio deskripsi.</p>
+        <div class="inklusi-item">
+          <div class="inklusi-nomor">2</div>
+          <div><h4>Aksesibilitas Komunikasi</h4><p>Bahasa isyarat, braille, subtitle, audio deskripsi.</p></div>
         </div>
-      </div>
-
-      <div class="inklusi-item">
-        <div class="inklusi-nomor">3</div>
-        <div>
-          <h4>Akomodasi di Tempat Kerja</h4>
-          <p>Fleksibilitas jadwal, teknologi assistif, modifikasi tugas.</p>
+        <div class="inklusi-item">
+          <div class="inklusi-nomor">3</div>
+          <div><h4>Akomodasi di Tempat Kerja</h4><p>Fleksibilitas jadwal, teknologi assistif, modifikasi tugas.</p></div>
         </div>
-      </div>
-
-      <div class="inklusi-item">
-        <div class="inklusi-nomor">4</div>
-        <div>
-          <h4>Pendidikan Inklusif</h4>
-          <p>Semua anak berhak mendapat pendidikan berkualitas.</p>
+        <div class="inklusi-item">
+          <div class="inklusi-nomor">4</div>
+          <div><h4>Pendidikan Inklusif</h4><p>Semua anak berhak mendapat pendidikan berkualitas.</p></div>
         </div>
-      </div>
-
-      <div class="inklusi-item">
-        <div class="inklusi-nomor">5</div>
-        <div>
-          <h4>Eliminasi Stigma</h4>
-          <p>Ubah pandangan dari belas kasihan menjadi penghormatan hak.</p>
+        <div class="inklusi-item">
+          <div class="inklusi-nomor">5</div>
+          <div><h4>Eliminasi Stigma</h4><p>Ubah pandangan dari belas kasihan menjadi penghormatan hak.</p></div>
         </div>
-      </div>
-
-      <div class="inklusi-item">
-        <div class="inklusi-nomor">6</div>
-        <div>
-          <h4>Perlindungan Hukum</h4>
-          <p>Hak dijamin oleh UU No. 8/2016 di semua bidang kehidupan.</p>
+        <div class="inklusi-item">
+          <div class="inklusi-nomor">6</div>
+          <div><h4>Perlindungan Hukum</h4><p>Hak dijamin oleh UU No. 8/2016 di semua bidang kehidupan.</p></div>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ===== BAGIAN 6: REKRUTMEN ===== -->
-  <div style="background: white; padding: 20px 0;">
-    <div class="seksi" id="rekrutmen">
-      <span class="seksi-label">Rekrutmen</span>
-      <h2>Rekrutmen Kerja untuk Disabilitas</h2>
-      <p>Perusahaan inklusif yang membuka peluang bagi penyandang disabilitas.</p>
-
-      <div class="rekrutmen-grid">
-
-        <div class="rekrutmen-kartu">
-          <p class="nama-perusahaan">Tokopedia</p>
-          <h3>UI/UX Accessibility Designer</h3>
-          <p class="rekrutmen-meta">📍 Jakarta</p>
-          <p class="rekrutmen-meta">💼 Full Time</p>
-          <p class="rekrutmen-meta">💰 Rp 8–14 Juta</p>
-          <a href="#" class="tombol-lamar">Lamar Sekarang</a>
-        </div>
-
-        <div class="rekrutmen-kartu">
-          <p class="nama-perusahaan">Kemendikbudristek</p>
-          <h3>Penerjemah Bahasa Isyarat</h3>
-          <p class="rekrutmen-meta">📍 Jakarta / Remote</p>
-          <p class="rekrutmen-meta">💼 Kontrak</p>
-          <p class="rekrutmen-meta">💰 Rp 6–10 Juta</p>
-          <a href="#" class="tombol-lamar">Lamar Sekarang</a>
-        </div>
-
       </div>
     </div>
   </div>
 
-  <!-- ===== BAGIAN 7: FOOTER ===== -->
+  <!-- REKRUTMEN -->
+  <div class="seksi" id="rekrutmen">
+    <span class="seksi-label">Rekrutmen</span>
+    <h2>Rekrutmen Kerja untuk Disabilitas</h2>
+    <p>Perusahaan inklusif yang membuka peluang bagi penyandang disabilitas.</p>
+    <div class="rekrutmen-grid">
+      <div class="rekrutmen-kartu">
+        <p class="nama-perusahaan">Tokopedia</p>
+        <h3>UI/UX Accessibility Designer</h3>
+        <p class="rekrutmen-meta">📍 Jakarta</p>
+        <p class="rekrutmen-meta">💼 Full Time</p>
+        <p class="rekrutmen-meta">💰 Rp 8–14 Juta</p>
+        <button class="tombol-lamar" onclick="bukaModal('UI/UX Accessibility Designer', 'Tokopedia')">Lamar Sekarang</button>
+      </div>
+      <div class="rekrutmen-kartu">
+        <p class="nama-perusahaan">Kemendikbudristek</p>
+        <h3>Penerjemah Bahasa Isyarat</h3>
+        <p class="rekrutmen-meta">📍 Jakarta / Remote</p>
+        <p class="rekrutmen-meta">💼 Kontrak</p>
+        <p class="rekrutmen-meta">💰 Rp 6–10 Juta</p>
+        <button class="tombol-lamar" onclick="bukaModal('Penerjemah Bahasa Isyarat', 'Kemendikbudristek')">Lamar Sekarang</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <div class="footer">
-    <p>© 2026 <span>SETARA</span> — Dibuat untuk Indonesia yang inklusif.</p>
-    <p style="margin-top: 8px; font-style: italic;">Bukan tentang kita, tanpa kita.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; max-width:900px; margin:0 auto 32px; text-align:left;">
+      <div>
+        <p style="color:white; font-weight:800; font-size:18px; margin-bottom:8px;">SET<span>A</span>RA</p>
+        <p style="font-style:italic;">Bukan tentang kita, tanpa kita.</p>
+      </div>
+      <div>
+        <p style="color:white; font-weight:700; margin-bottom:12px;">Tim Kami</p>
+        <p style="margin-bottom:6px;">Michel Ade Sasra</p>
+        <p style="margin-bottom:6px;">Viera Fitria Hapsari</p>
+        <p style="margin-bottom:6px;">Rendaprila Kalintang</p>
+        <p style="margin-bottom:6px;">Muhamad Rafid Aziz</p>
+        <p style="margin-bottom:6px;">Fariz Rajessa Pramudita</p>
+      </div>
+      <div>
+        <p style="color:white; font-weight:700; margin-bottom:12px;">Alamat</p>
+        <p style="margin-bottom:6px;">Politeknik Kesejahteraan Sosial Bandung</p>
+        <p style="font-size:13px; line-height:1.6;">Jl. Ir. H. Juanda No.367, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135</p>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:24px;">
+      <p>© 2026 <span>SETARA</span> — Dibuat untuk Indonesia yang inklusif.</p>
+    </div>
   </div>
+
+  <!-- POPUP FORM LAMARAN -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <button class="modal-tutup" onclick="tutupModal()">✕</button>
+      <div id="isi-form">
+        <p class="modal-judul">Form Lamaran Kerja</p>
+        <p class="modal-subjudul" id="modal-nama-posisi">Posisi: —</p>
+        <div class="form-grup">
+          <label>Nama Lengkap *</label>
+          <input type="text" placeholder="Contoh: Budi Santoso">
+        </div>
+        <div class="form-grup">
+          <label>Email *</label>
+          <input type="email" placeholder="Contoh: budi@email.com">
+        </div>
+        <div class="form-grup">
+          <label>Nomor HP / WhatsApp *</label>
+          <input type="tel" placeholder="Contoh: 0812-3456-7890">
+        </div>
+        <div class="form-grup">
+          <label>Alamat Lengkap *</label>
+          <textarea placeholder="Contoh: Jl. Merdeka No. 10, Bandung, Jawa Barat"></textarea>
+        </div>
+        <div class="form-grup">
+          <label>Jenis Disabilitas *</label>
+          <select>
+            <option value="">-- Pilih jenis disabilitas --</option>
+            <option>Disabilitas Fisik</option>
+            <option>Disabilitas Penglihatan (Tunanetra)</option>
+            <option>Disabilitas Pendengaran (Tunarungu)</option>
+            <option>Disabilitas Intelektual</option>
+            <option>Disabilitas Mental</option>
+            <option>Disabilitas Perkembangan (Autisme/ADHD)</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+        <div class="form-grup">
+          <label>Pengalaman Kerja / Pendidikan Terakhir *</label>
+          <textarea placeholder="Contoh: Lulusan D3 Poltekkes 2024. Pernah magang di RSU Bandung selama 3 bulan."></textarea>
+        </div>
+        <div class="form-grup">
+          <label>Upload CV (PDF/Word) *</label>
+          <input type="file" accept=".pdf,.doc,.docx">
+        </div>
+        <button class="form-kirim" onclick="kirimLamaran()">Kirim Lamaran ✉️</button>
+      </div>
+      <div class="pesan-sukses" id="pesan-sukses">
+        <div class="ikon-sukses">🎉</div>
+        <h3>Lamaran Terkirim!</h3>
+        <p>Terima kasih telah melamar. Tim rekruter akan menghubungi Anda dalam 3–5 hari kerja.</p>
+        <br>
+        <button class="form-kirim" onclick="tutupModal()" style="width:auto; padding:12px 32px;">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOMBOL AKSESIBILITAS (pojok kanan bawah) -->
+  <button class="akses-btn" onclick="toggleAkses()" title="Pengaturan Aksesibilitas">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <!-- Kepala -->
+      <circle cx="12" cy="3" r="2"/>
+      <!-- Tangan kiri dan kanan terbuka -->
+      <line x1="4" y1="8.5" x2="20" y2="8.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Badan -->
+      <line x1="12" y1="8.5" x2="12" y2="14" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Kaki kiri -->
+      <line x1="12" y1="14" x2="8" y2="21" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- Kaki kanan -->
+      <line x1="12" y1="14" x2="16" y2="21" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <!-- PANEL AKSESIBILITAS -->
+  <div class="akses-panel" id="akses-panel">
+    <h4>♿ Aksesibilitas</h4>
+
+    <div class="akses-baris">
+      <div class="akses-kiri">
+        <span>🔊 Baca Halaman</span>
+        <small>Text-to-speech Bahasa Indonesia</small>
+      </div>
+      <div class="tombol-tts">
+        <button class="btn-mulai" onclick="mulaiTTS()">▶ Mulai</button>
+        <button class="btn-stop" onclick="stopTTS()">⏹</button>
+      </div>
+    </div>
+
+    <div class="akses-baris">
+      <div class="akses-kiri">
+        <span>🔡 Ukuran Teks</span>
+        <small>Perbesar atau perkecil teks</small>
+      </div>
+      <div class="tombol-ukuran">
+        <button onclick="ubahTeks(-10)">−</button>
+        <span id="persen-teks">100%</span>
+        <button onclick="ubahTeks(10)">+</button>
+      </div>
+    </div>
+
+    <div class="akses-baris">
+      <div class="akses-kiri">
+        <span>◑ Kontras Tinggi</span>
+        <small>Mode hitam putih tebal</small>
+      </div>
+      <button class="toggle-switch" id="toggle-kontras" onclick="toggleKontras()" aria-label="Toggle kontras tinggi"></button>
+    </div>
+  </div>
+
+  <script>
+    // === CHAT ===
+    function toggleChat() {
+      const panel = document.getElementById('chat-panel');
+      panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
+    function kirimPesan() {
+      const input = document.getElementById('chat-input');
+      const pesan = input.value.trim();
+      if (!pesan) return;
+      const box = document.getElementById('chat-messages');
+      const pesanUser = document.createElement('div');
+      pesanUser.style.cssText = 'background:#0F6E56;color:white;border-radius:12px 12px 0 12px;padding:10px 14px;font-size:13px;max-width:85%;align-self:flex-end;';
+      pesanUser.textContent = pesan;
+      box.appendChild(pesanUser);
+      input.value = '';
+      box.scrollTop = box.scrollHeight;
+      setTimeout(() => {
+        const balas = document.createElement('div');
+        balas.style.cssText = 'background:#E1F5EE;border-radius:12px 12px 12px 0;padding:10px 14px;font-size:13px;max-width:85%;';
+        balas.innerHTML = 'Terima kasih pesannya! Kami akan segera menghubungi Anda. Atau langsung hubungi via <a href="https://wa.me/6281234567890" target="_blank" style="color:#0F6E56;font-weight:700;">WhatsApp</a>.';
+        box.appendChild(balas);
+        box.scrollTop = box.scrollHeight;
+      }, 800);
+    }
+
+    // === FORM LAMARAN ===
+    function bukaModal(posisi, perusahaan) {
+      document.getElementById('overlay').classList.add('aktif');
+      document.getElementById('modal-nama-posisi').textContent = posisi + ' — ' + perusahaan;
+      document.getElementById('isi-form').style.display = 'block';
+      document.getElementById('pesan-sukses').style.display = 'none';
+    }
+    function tutupModal() {
+      document.getElementById('overlay').classList.remove('aktif');
+    }
+    document.getElementById('overlay').addEventListener('click', function(e) {
+      if (e.target === this) tutupModal();
+    });
+    function kirimLamaran() {
+      document.getElementById('isi-form').style.display = 'none';
+      document.getElementById('pesan-sukses').style.display = 'block';
+    }
+
+    // === AKSESIBILITAS ===
+    function toggleAkses() {
+      document.getElementById('akses-panel').classList.toggle('aktif');
+    }
+
+    // 1. Text-to-Speech
+    function mulaiTTS() {
+      if (!('speechSynthesis' in window)) {
+        alert('Browser Anda tidak mendukung fitur baca teks. Gunakan Google Chrome.');
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const teks = document.body.innerText.replace(/\s+/g, ' ').substring(0, 5000);
+      const ucapan = new SpeechSynthesisUtterance(teks);
+      ucapan.lang = 'id-ID';
+      ucapan.rate = 0.85;
+      ucapan.pitch = 1;
+      window.speechSynthesis.speak(ucapan);
+    }
+    function stopTTS() {
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    }
+
+    // 2. Ukuran teks
+    let ukuranSaat = 100;
+    function ubahTeks(delta) {
+      ukuranSaat = Math.min(160, Math.max(70, ukuranSaat + delta));
+      document.body.style.fontSize = ukuranSaat + '%';
+      document.getElementById('persen-teks').textContent = ukuranSaat + '%';
+    }
+
+    // 3. Kontras tinggi
+    let kontrasAktif = false;
+    function toggleKontras() {
+      kontrasAktif = !kontrasAktif;
+      document.body.classList.toggle('kontras-tinggi', kontrasAktif);
+      document.getElementById('toggle-kontras').classList.toggle('aktif', kontrasAktif);
+    }
+  </script>
 
 </body>
 </html>
