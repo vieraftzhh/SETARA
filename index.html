@@ -526,22 +526,27 @@
         </div>
         <div class="form-grup">
           <label>Pengalaman Kerja / Pendidikan Terakhir *</label>
-          <textarea placeholder="Contoh: Lulusan D3 Poltekkes 2024. Pernah magang di RSU Bandung selama 3 bulan."></textarea>
+          <textarea placeholder="Contoh: Lulusan Politeknik Kesejahteraan Sosial Bandung 2020. Pernah magang di SLB Bandung selama 3 bulan."></textarea>
         </div>
-        <div class="form-grup">
+       <div class="form-grup">
           <label>Upload CV (PDF/Word) *</label>
           <input type="file" accept=".pdf,.doc,.docx">
         </div>
+
+        <div class="form-grup">
+          <label>🎬 Tutorial Membuat CV yang Baik</label>
+          <div style="border-radius:8px; overflow:hidden; margin-top:4px;">
+            <iframe width="100%" height="200"
+              src="https://www.youtube.com/embed/aLDMCPTNXsI"
+              title="Cara Membuat CV ATS Friendly"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen style="display:block; border:none;">
+            </iframe>
+          </div>
+          <p style="font-size:12px; color:#888780; margin-top:6px;">Tonton panduan ini sebelum mengupload CV Anda.</p>
+        </div>
+
         <button class="form-kirim" onclick="kirimLamaran()">Kirim Lamaran ✉️</button>
-      </div>
-      <div class="pesan-sukses" id="pesan-sukses">
-        <div class="ikon-sukses">🎉</div>
-        <h3>Lamaran Terkirim!</h3>
-        <p>Terima kasih telah melamar. Tim rekruter akan menghubungi Anda dalam 3–5 hari kerja.</p>
-        <br>
-        <button class="form-kirim" onclick="tutupModal()" style="width:auto; padding:12px 32px;">Tutup</button>
-      </div>
-    </div>
   </div>
 
   <!-- TOMBOL AKSESIBILITAS (pojok kanan bawah) -->
