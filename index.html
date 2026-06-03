@@ -21,53 +21,83 @@
       border-bottom: 1px solid #e5e5e5;
       padding: 16px 40px;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      box-sizing: border-box;
       position: sticky;
       top: 0;
       z-index: 100;
     }
-    .navbar-logo {
-      font-size: 22px; font-weight: 800;
-      color: #0F6E56; text-decoration: none; flex-shrink: 0;
-    }
+    .navbar-logo { font-size: 22px; font-weight: 800; color: #0F6E56; text-decoration: none; }
     .navbar-logo span { color: #BA7517; }
-    .navbar-links {
-      display: flex; flex-direction: row;
-      align-items: center; gap: 0;
-    }
-    .navbar-links a {
-      text-decoration: none; color: #5F5E5A;
-      font-size: 14px; font-weight: 600; margin-left: 24px;
-    }
+    .navbar-links { display: flex; align-items: center; }
+    .navbar-links a { text-decoration: none; color: #5F5E5A; font-size: 14px; font-weight: 600; margin-left: 24px; }
     .navbar-links a:hover { color: #0F6E56; }
 
     /* HERO */
     .hero {
-      background: linear-gradient(135deg, #E1F5EE, #FAEEDA, #E6F1FB);
-      padding: 80px 40px; text-align: center;
+      background: linear-gradient(135deg, #E1F5EE 0%, #FAEEDA 50%, #E6F1FB 100%);
+      padding: 90px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    .hero h1 { font-size: 52px; font-weight: 800; margin-bottom: 16px; }
+    .hero::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(15,110,86,0.08), transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -60px; left: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(186,117,23,0.07), transparent 70%);
+    }
+    .hero h1 { font-size: 52px; font-weight: 800; margin-bottom: 16px; position: relative; z-index: 1; }
     .hero h1 span { color: #0F6E56; }
-    .hero p { font-size: 18px; color: #4a4a48; margin-bottom: 32px; }
-    .hero-buttons { display: flex; gap: 12px; justify-content: center; }
+    .hero-desc { font-size: 17px; color: #4a4a48; margin-bottom: 12px; max-width: 620px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
+    .hero-tagline {
+      font-size: 14px; color: #0F6E56; font-weight: 600;
+      background: rgba(15,110,86,0.08); display: inline-block;
+      padding: 6px 16px; border-radius: 20px; margin-bottom: 32px;
+      position: relative; z-index: 1;
+    }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; position: relative; z-index: 1; margin-bottom: 56px; }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex; justify-content: center; gap: 0;
+      max-width: 700px; margin: 0 auto;
+      background: white; border-radius: 16px;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .stat-item {
+      flex: 1; padding: 18px 16px; text-align: center;
+      border-right: 1px solid #e5e5e5;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-angka { font-size: 22px; font-weight: 800; color: #0F6E56; }
+    .stat-label { font-size: 11px; color: #888780; margin-top: 2px; line-height: 1.4; }
 
     /* TOMBOL */
     .btn-hijau {
       background-color: #0F6E56; color: white;
       padding: 14px 28px; border-radius: 24px;
       text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: background 0.15s, transform 0.15s;
     }
-    .btn-hijau:hover { background-color: #085041; }
+    .btn-hijau:hover { background-color: #085041; transform: translateY(-1px); }
     .btn-putih {
       background-color: white; color: #0F6E56;
       padding: 14px 28px; border-radius: 24px;
       text-decoration: none; font-weight: 600; font-size: 14px;
       border: 1px solid #9FE1CB;
     }
+    .btn-putih:hover { background: #E1F5EE; }
 
     /* SEKSI */
     .seksi { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
@@ -78,21 +108,84 @@
       border-radius: 4px; margin-bottom: 12px;
     }
     .seksi h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
-    .seksi > p { color: #4a4a48; max-width: 600px; margin-bottom: 40px; }
+
+    /* RATA KANAN KIRI — perubahan #1 */
+    .teks-justify { text-align: justify; color: #4a4a48; max-width: 700px; margin-bottom: 16px; }
+
+    /* BANNER INKLUSI — perubahan #3 & #4 */
+    .inklusi-banner {
+      background: linear-gradient(135deg, #0F6E56 0%, #1A8ED4 100%);
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .inklusi-banner::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .inklusi-banner::after {
+      content: '';
+      position: absolute; bottom: -60px; left: -30px;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .inklusi-banner h2 {
+      font-size: 36px; font-weight: 800; color: white;
+      margin-bottom: 16px; position: relative; z-index: 1;
+    }
+    .inklusi-banner p {
+      font-size: 17px; color: rgba(255,255,255,0.85);
+      max-width: 680px; margin: 0 auto 32px;
+      line-height: 1.75; text-align: justify;
+      position: relative; z-index: 1;
+    }
+    .inklusi-banner-stats {
+      display: flex; justify-content: center; gap: 32px;
+      flex-wrap: wrap; position: relative; z-index: 1;
+    }
+    .inklusi-banner-stat {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px; padding: 16px 24px; text-align: center;
+    }
+    .inklusi-banner-stat .angka { font-size: 28px; font-weight: 800; color: white; }
+    .inklusi-banner-stat .keterangan { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; }
+
+    /* GAMBAR HIASAN — perubahan #2 */
+    .hiasan-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-bottom: 48px;
+    }
+    .hiasan-kartu {
+      border-radius: 16px; padding: 28px 20px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hiasan-kartu::before {
+      content: ''; position: absolute; top: -20px; right: -20px;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+    }
+    .hiasan-ikon { font-size: 40px; margin-bottom: 12px; }
+    .hiasan-kartu h4 { font-size: 14px; font-weight: 700; color: white; margin-bottom: 6px; }
+    .hiasan-kartu p { font-size: 12px; color: rgba(255,255,255,0.85); line-height: 1.5; }
 
     /* KARTU JENIS */
     .kartu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .kartu {
       background: white; border: 1px solid #e5e5e5;
       border-radius: 12px; padding: 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .kartu:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .kartu:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
     .kartu-ikon { font-size: 28px; margin-bottom: 12px; }
     .kartu h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .kartu p { font-size: 14px; color: #5F5E5A; margin-bottom: 8px; }
+    .kartu p { font-size: 14px; color: #5F5E5A; margin-bottom: 8px; text-align: justify; }
     .kartu ul { padding-left: 18px; font-size: 13px; color: #888780; }
 
-    /* INKLUSI */
+    /* INKLUSI GRID */
     .inklusi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .inklusi-item {
       background: #F1EFE8; border-radius: 12px;
@@ -105,15 +198,16 @@
       font-weight: 700; font-size: 14px; flex-shrink: 0;
     }
     .inklusi-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-    .inklusi-item p { font-size: 13px; color: #5F5E5A; }
+    .inklusi-item p { font-size: 13px; color: #5F5E5A; text-align: justify; }
 
     /* REKRUTMEN */
     .rekrutmen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .rekrutmen-kartu {
       background: white; border: 1px solid #e5e5e5;
       border-radius: 12px; padding: 24px;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .rekrutmen-kartu:hover { border-color: #9FE1CB; }
+    .rekrutmen-kartu:hover { border-color: #9FE1CB; box-shadow: 0 4px 16px rgba(15,110,86,0.08); }
     .nama-perusahaan { font-size: 12px; color: #888780; font-weight: 600; margin-bottom: 6px; }
     .rekrutmen-kartu h3 { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
     .rekrutmen-meta { font-size: 13px; color: #5F5E5A; margin-bottom: 6px; }
@@ -124,6 +218,7 @@
       border-radius: 8px; border: none;
       font-weight: 600; font-size: 13px;
       cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background 0.15s, color 0.15s;
     }
     .tombol-lamar:hover { background: #0F6E56; color: white; }
 
@@ -149,10 +244,7 @@
     }
     .modal-tutup:hover { color: #1a1a18; }
     .form-grup { margin-bottom: 16px; }
-    .form-grup label {
-      display: block; font-size: 13px; font-weight: 700;
-      color: #1a1a18; margin-bottom: 6px;
-    }
+    .form-grup label { display: block; font-size: 13px; font-weight: 700; color: #1a1a18; margin-bottom: 6px; }
     .form-grup input,
     .form-grup select,
     .form-grup textarea {
@@ -168,10 +260,11 @@
     .form-grup input[type="file"] { padding: 8px; font-size: 13px; }
     .form-kirim {
       width: 100%; padding: 14px;
-      background: #1A8ED4; color: white; border: 3px solid #6EC6F0;
+      background: #0F6E56; color: white; border: none;
       border-radius: 24px; font-size: 15px; font-weight: 700;
       cursor: pointer; margin-top: 8px;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: background 0.15s;
     }
     .form-kirim:hover { background: #085041; }
     .pesan-sukses { display: none; text-align: center; padding: 24px 0 8px; }
@@ -179,14 +272,15 @@
     .pesan-sukses h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
     .pesan-sukses p { font-size: 14px; color: #5F5E5A; }
 
-    /* ===== AKSESIBILITAS ===== */
+    /* AKSESIBILITAS */
     .akses-btn {
       position: fixed; bottom: 24px; right: 24px;
       width: 54px; height: 54px; border-radius: 50%;
       background: #1A8ED4; color: white; border: 3px solid #6EC6F0;
-      font-size: 24px; cursor: pointer; z-index: 1000;
+      cursor: pointer; z-index: 1000;
       box-shadow: 0 4px 16px rgba(0,0,0,0.25);
       display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
     }
     .akses-btn:hover { background: #1578B5; }
     .akses-panel {
@@ -198,14 +292,9 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
     .akses-panel.aktif { display: block; }
-    .akses-panel h4 {
-      font-size: 12px; font-weight: 700; color: #888780;
-      text-transform: uppercase; letter-spacing: 1.2px;
-      margin-bottom: 14px;
-    }
+    .akses-panel h4 { font-size: 12px; font-weight: 700; color: #888780; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 14px; }
     .akses-baris {
-      display: flex; align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       background: #F1EFE8; border-radius: 10px;
       padding: 10px 14px; margin-bottom: 10px;
     }
@@ -214,13 +303,9 @@
     .akses-kiri span { font-size: 14px; font-weight: 600; color: #1a1a18; }
     .akses-kiri small { font-size: 11px; color: #5F5E5A; margin-top: 2px; }
     .tombol-tts { display: flex; gap: 6px; }
-    .tombol-tts button {
-      padding: 5px 11px; border-radius: 20px;
-      font-size: 12px; font-weight: 600; cursor: pointer;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .btn-mulai { background: #1A8ED4; color: white; border: 3px solid #6EC6F0; }
-    .btn-mulai:hover { background: #085041; }
+    .tombol-tts button { padding: 5px 11px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .btn-mulai { background: #1A8ED4; color: white; border: 2px solid #6EC6F0; }
+    .btn-mulai:hover { background: #1578B5; }
     .btn-stop { background: white; color: #5F5E5A; border: 1px solid #e5e5e5; }
     .tombol-ukuran { display: flex; align-items: center; gap: 6px; }
     .tombol-ukuran button {
@@ -228,8 +313,7 @@
       background: white; border: 1px solid #e5e5e5;
       color: #1a1a18; font-size: 18px; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1;
+      font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1;
     }
     .tombol-ukuran button:hover { background: #E1F5EE; }
     .tombol-ukuran span { font-size: 12px; color: #5F5E5A; min-width: 36px; text-align: center; font-weight: 600; }
@@ -239,39 +323,81 @@
       position: relative; transition: background 0.25s; flex-shrink: 0;
     }
     .toggle-switch::after {
-      content: ''; width: 18px; height: 18px;
-      background: white; border-radius: 50%;
-      position: absolute; top: 3px; left: 3px;
-      transition: left 0.25s;
+      content: ''; width: 18px; height: 18px; background: white; border-radius: 50%;
+      position: absolute; top: 3px; left: 3px; transition: left 0.25s;
     }
     .toggle-switch.aktif { background: #0F6E56; }
     .toggle-switch.aktif::after { left: 23px; }
 
-    /* Mode kontras tinggi */
+    /* KONTRAS TINGGI */
     body.kontras-tinggi { background: #000 !important; color: #fff !important; }
     body.kontras-tinggi .navbar,
     body.kontras-tinggi .kartu,
     body.kontras-tinggi .rekrutmen-kartu,
     body.kontras-tinggi .modal,
-    body.kontras-tinggi .akses-panel { background: #000 !important; border-color: #fff !important; }
-    body.kontras-tinggi h1, body.kontras-tinggi h2,
-    body.kontras-tinggi h3, body.kontras-tinggi h4,
-    body.kontras-tinggi p, body.kontras-tinggi li,
-    body.kontras-tinggi a, body.kontras-tinggi label,
-    body.kontras-tinggi span { color: #fff !important; }
+    body.kontras-tinggi .akses-panel,
+    body.kontras-tinggi .stats-bar { background: #000 !important; border-color: #fff !important; }
+    body.kontras-tinggi h1, body.kontras-tinggi h2, body.kontras-tinggi h3, body.kontras-tinggi h4,
+    body.kontras-tinggi p, body.kontras-tinggi li, body.kontras-tinggi a,
+    body.kontras-tinggi label, body.kontras-tinggi span { color: #fff !important; }
     body.kontras-tinggi .seksi-label { background: #fff !important; color: #000 !important; }
     body.kontras-tinggi .inklusi-item { background: #111 !important; border: 1px solid #fff !important; }
-    body.kontras-tinggi .hero { background: #111 !important; }
+    body.kontras-tinggi .hero,
+    body.kontras-tinggi .inklusi-banner { background: #111 !important; }
     body.kontras-tinggi .footer { background: #111 !important; border-top: 1px solid #fff; }
     body.kontras-tinggi .akses-baris { background: #222 !important; border: 1px solid #555; }
     body.kontras-tinggi .akses-btn { background: #fff !important; color: #000 !important; }
 
-    /* FOOTER */
-    .footer {
-      background: #1a1a18; color: rgba(255,255,255,0.6);
-      text-align: center; padding: 40px; font-size: 14px;
+    /* ILUSTRASI ANIMASI */
+    .ilustrasi-section {
+      padding: 60px 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+    .ilustrasi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+    .ilustrasi-item {
+      text-align: center;
+    }
+    .ilustrasi-item svg {
+      width: 100%;
+      max-width: 180px;
+    }
+    /* Animasi float naik turun */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-14px); }
+    }
+    @keyframes float3 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulse-ring {
+      0% { opacity: 0.6; r: 28px; }
+      100% { opacity: 0; r: 44px; }
+    }
+    .float-1 { animation: float 3.5s ease-in-out infinite; }
+    .float-2 { animation: float2 4s ease-in-out infinite 0.5s; }
+    .float-3 { animation: float3 3s ease-in-out infinite 1s; }
+    .float-4 { animation: float 4.5s ease-in-out infinite 1.5s; }
+    .ilustrasi-label {
+      font-size: 12px; font-weight: 700; color: #5F5E5A;
+      margin-top: 10px; text-align: center;
+    }
+
+
+    .footer { background: #1a1a18; color: rgba(255,255,255,0.6); text-align: center; padding: 48px 40px; font-size: 14px; }
     .footer span { color: #FAC775; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 900px; margin: 0 auto 32px; text-align: left; }
+    .footer-divider { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; margin-top: 8px; }
   </style>
 </head>
 
@@ -281,11 +407,12 @@
   <nav class="navbar">
     <a href="#" class="navbar-logo">SET<span>A</span>RA</a>
     <div class="navbar-links">
-      <a href="#pengertian">Tentang Disabilitas</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#pengertian">Disabilitas</a>
       <a href="#jenis">Jenis</a>
       <a href="#inklusi">Inklusi</a>
       <a href="#rekrutmen">Rekrutmen</a>
-      <button onclick="toggleChat()" style="background:none; border:none; cursor:pointer; margin-left:24px; padding:6px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:36px; height:36px; border-radius:8px; transition:background 0.2s;" onmouseover="this.style.background='#E1F5EE'" onmouseout="this.style.background='none'">
+      <button onclick="toggleChat()" title="Hubungi kami" style="background:none; border:none; cursor:pointer; margin-left:24px; padding:6px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:5px; width:36px; height:36px; border-radius:8px; transition:background 0.2s;" onmouseover="this.style.background='#E1F5EE'" onmouseout="this.style.background='none'">
         <span style="display:block; width:20px; height:2px; background:#0F6E56; border-radius:2px;"></span>
         <span style="display:block; width:20px; height:2px; background:#0F6E56; border-radius:2px;"></span>
         <span style="display:block; width:20px; height:2px; background:#0F6E56; border-radius:2px;"></span>
@@ -295,8 +422,6 @@
 
   <!-- PANEL CHAT -->
   <div id="chat-panel" style="display:none; position:fixed; bottom:24px; right:90px; width:320px; background:white; border-radius:16px; box-shadow:0 8px 32px rgba(0,0,0,0.15); z-index:998; overflow:hidden;">
-
-    <!-- Header -->
     <div style="background:#0F6E56; padding:16px 20px; display:flex; justify-content:space-between; align-items:center;">
       <div style="display:flex; align-items:center; gap:10px;">
         <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; font-size:16px;">💬</div>
@@ -307,53 +432,237 @@
       </div>
       <button onclick="toggleChat()" style="background:none; border:none; color:white; font-size:20px; cursor:pointer; line-height:1;">×</button>
     </div>
-
-    <!-- Pesan -->
     <div id="chat-messages" style="padding:16px; height:240px; overflow-y:auto; display:flex; flex-direction:column; gap:10px; background:#FAFAF8;">
-      <!-- Pesan sambutan -->
       <div style="display:flex; gap:8px; align-items:flex-end;">
-        <div style="width:28px; height:28px; border-radius:50%; background:#0F6E56; display:flex; align-items:center; justify-content:center; font-size:12px; flex-shrink:0;">S</div>
+        <div style="width:28px; height:28px; border-radius:50%; background:#0F6E56; display:flex; align-items:center; justify-content:center; font-size:12px; color:white; font-weight:700; flex-shrink:0;">S</div>
         <div style="background:#E1F5EE; border-radius:12px 12px 12px 0; padding:10px 14px; font-size:13px; max-width:85%; line-height:1.5;">
           Halo! 👋 Selamat datang di <strong>SETARA</strong>.<br>Ketik pesan Anda dan kami akan membalas melalui WhatsApp.
         </div>
       </div>
     </div>
-
-    <!-- Input -->
     <div style="padding:12px 16px; border-top:1px solid #e5e5e5; background:white;">
       <div style="display:flex; gap:8px; margin-bottom:8px;">
-        <input id="chat-input" type="text" placeholder="Ketik pesan Anda..."
-          onkeydown="if(event.key==='Enter') kirimPesan()"
+        <input id="chat-input" type="text" placeholder="Ketik pesan Anda..." onkeydown="if(event.key==='Enter') kirimPesan()"
           style="flex:1; border:1px solid #e5e5e5; border-radius:20px; padding:8px 14px; font-size:13px; outline:none; font-family:inherit; background:#FAFAF8;">
-        <button onclick="kirimPesan()"
-          style="background:#0F6E56; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; color:white; font-size:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">➤</button>
+        <button onclick="kirimPesan()" style="background:#0F6E56; border:none; border-radius:50%; width:36px; height:36px; cursor:pointer; color:white; font-size:16px; flex-shrink:0; display:flex; align-items:center; justify-content:center;">➤</button>
       </div>
-      <!-- Tombol langsung WA -->
       <a href="https://wa.me/6281325026288" target="_blank"
         style="display:flex; align-items:center; justify-content:center; gap:6px; background:#25D366; color:white; border-radius:20px; padding:8px; font-size:12px; font-weight:700; text-decoration:none;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.554 4.118 1.523 5.847L.057 23.882a.5.5 0 0 0 .613.613l6.037-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.512-5.228-1.403l-.374-.217-3.878.942.96-3.878-.234-.384A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         Chat Langsung di WhatsApp
       </a>
     </div>
-
   </div>
 
   <!-- HERO -->
   <div class="hero">
-    <h1>Bersama Menuju Indonesia yang <span>SETARA</span></h1>
-    <p>Platform Pemberdayaan Penyandang Disabilitas Indonesia</p>
+    <div class="hero-tagline">✦ Platform Pemberdayaan Penyandang Disabilitas Indonesia</div>
+    <h1>BERSAMA MENUJU INDONESIA <span>SET<em style="font-style:normal; color:#BA7517;">A</em>RA</span></h1>
+    <p class="hero-desc">Setiap individu berhak atas kesempatan yang sama untuk berkarya, berkembang, dan hidup bermartabat — tanpa memandang kondisi fisik maupun mental.</p>
     <div class="hero-buttons">
       <a href="#rekrutmen" class="btn-hijau">Lihat Rekrutmen</a>
       <a href="#pengertian" class="btn-putih">Pelajari Lebih Lanjut</a>
     </div>
+    <!-- Stats bar -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-angka">22,9 Jt</div>
+        <div class="stat-label">Penyandang disabilitas di Indonesia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-angka">1%</div>
+        <div class="stat-label">Kuota kerja wajib perusahaan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-angka">UU 8/2016</div>
+        <div class="stat-label">Landasan hukum perlindungan</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-angka">Inklusif</div>
+        <div class="stat-label">Semua berhak berpartisipasi</div>
+      </div>
+    </div>
   </div>
 
-  <!-- TENTANG -->
+  <!-- ===== PERUBAHAN #3 & #4: BANNER INKLUSI SETELAH SETARA ===== -->
+  <div class="inklusi-banner" id="inklusi-setara">
+    <h2>Inklusi Bukan Privilese Tapi Hak Semua Orang</h2>
+    <p>
+      Pemberdayaan disabilitas bukan sekadar memberi bantuan, melainkan membangun sistem yang memungkinkan setiap individu berpartisipasi penuh dalam kehidupan sosial, ekonomi, dan budaya. Kesetaraan disabilitas berarti menghapus hambatan, bukan hanya fisik, tetapi juga stigma, diskriminasi, dan ketimpangan akses informasi. Indonesia telah menegaskan komitmen ini melalui UU No. 8 Tahun 2016 yang menjamin hak penyandang disabilitas di semua bidang kehidupan.
+    </p>
+    <div class="inklusi-banner-stats">
+      <div class="inklusi-banner-stat">
+        <div class="angka">🤝</div>
+        <div class="keterangan">Kesetaraan Hak</div>
+      </div>
+      <div class="inklusi-banner-stat">
+        <div class="angka">💼</div>
+        <div class="keterangan">Akses Kerja</div>
+      </div>
+      <div class="inklusi-banner-stat">
+        <div class="angka">📚</div>
+        <div class="keterangan">Pendidikan Inklusif</div>
+      </div>
+      <div class="inklusi-banner-stat">
+        <div class="angka">🏛️</div>
+        <div class="keterangan">Perlindungan Hukum</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TENTANG SETARA ===== -->
   <div class="seksi" id="tentang">
     <span class="seksi-label">Tentang Kami</span>
     <h2>Apa itu SETARA?</h2>
-    <p>
-      SETARA atau <strong>Sistem Edukasi dan Akses Tenaga Kerja Disabilitas</strong> adalah platform digital pemberdayaan yang dirancang untuk memperkuat keberfungsian sosial penyandang disabilitas di sektor ketenagakerjaan. Berdasarkan UU No. 8 Tahun 2016, kami menyediakan kesempatan pelatihan keterampilan serta akses informasi lowongan kerja yang ramah disabilitas. Melalui SETARA, kami tidak hanya menyajikan data, tetapi membangun harapan. Kami percaya setiap individu memiliki hak yang sama untuk berkarya dan mandiri.
+
+    <!-- PERUBAHAN #1: Ilustrasi animasi disabilitas -->
+    <div class="ilustrasi-section">
+      <div class="ilustrasi-row">
+
+        <!-- Figur 1: Pengguna kursi roda -->
+        <div class="ilustrasi-item">
+          <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" class="float-1">
+            <!-- Lingkaran latar -->
+            <circle cx="80" cy="100" r="64" fill="#E1F5EE"/>
+            <!-- Kepala -->
+            <circle cx="80" cy="48" r="16" fill="#0F6E56"/>
+            <!-- Badan -->
+            <rect x="68" y="66" width="14" height="36" rx="7" fill="#0F6E56"/>
+            <!-- Tangan kiri -->
+            <line x1="68" y1="78" x2="48" y2="92" stroke="#0F6E56" stroke-width="7" stroke-linecap="round"/>
+            <!-- Kursi roda dudukan -->
+            <rect x="52" y="102" width="42" height="18" rx="6" fill="#1AAD7A"/>
+            <!-- Sandaran kursi -->
+            <rect x="88" y="80" width="10" height="40" rx="5" fill="#1AAD7A"/>
+            <!-- Roda besar -->
+            <circle cx="70" cy="136" r="20" fill="none" stroke="#0F6E56" stroke-width="5"/>
+            <circle cx="70" cy="136" r="4" fill="#0F6E56"/>
+            <!-- Roda kecil depan -->
+            <circle cx="50" cy="126" r="8" fill="none" stroke="#0F6E56" stroke-width="4"/>
+            <!-- Kaki -->
+            <line x1="60" y1="118" x2="54" y2="118" stroke="#0F6E56" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <div class="ilustrasi-label">Pengguna Kursi Roda</div>
+        </div>
+
+        <!-- Figur 2: Tunanetra dengan tongkat -->
+        <div class="ilustrasi-item">
+          <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" class="float-2">
+            <circle cx="80" cy="100" r="64" fill="#FAEEDA"/>
+            <!-- Kepala -->
+            <circle cx="80" cy="44" r="16" fill="#BA7517"/>
+            <!-- Kacamata hitam -->
+            <rect x="65" y="40" width="14" height="8" rx="4" fill="#1a1a18"/>
+            <rect x="81" y="40" width="14" height="8" rx="4" fill="#1a1a18"/>
+            <line x1="79" y1="44" x2="81" y2="44" stroke="#1a1a18" stroke-width="2"/>
+            <!-- Badan -->
+            <rect x="68" y="62" width="24" height="46" rx="10" fill="#BA7517"/>
+            <!-- Tangan kanan memegang tongkat -->
+            <line x1="92" y1="76" x2="108" y2="90" stroke="#BA7517" stroke-width="7" stroke-linecap="round"/>
+            <!-- Tangan kiri -->
+            <line x1="68" y1="76" x2="52" y2="88" stroke="#BA7517" stroke-width="7" stroke-linecap="round"/>
+            <!-- Tongkat putih -->
+            <line x1="108" y1="90" x2="120" y2="148" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="120" cy="150" r="5" fill="#BA7517"/>
+            <!-- Kaki -->
+            <rect x="68" y="104" width="10" height="26" rx="5" fill="#BA7517"/>
+            <rect x="82" y="104" width="10" height="26" rx="5" fill="#BA7517"/>
+          </svg>
+          <div class="ilustrasi-label">Penyandang Tunanetra</div>
+        </div>
+
+        <!-- Figur 3: Bahasa isyarat / tunarungu -->
+        <div class="ilustrasi-item">
+          <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" class="float-3">
+            <circle cx="80" cy="100" r="64" fill="#E6F1FB"/>
+            <!-- Kepala -->
+            <circle cx="80" cy="44" r="16" fill="#1A8ED4"/>
+            <!-- Telinga dengan alat bantu dengar -->
+            <ellipse cx="97" cy="44" rx="5" ry="8" fill="#1A8ED4"/>
+            <circle cx="100" cy="40" r="4" fill="#FAC775" stroke="#BA7517" stroke-width="1.5"/>
+            <!-- Badan -->
+            <rect x="66" y="62" width="28" height="46" rx="10" fill="#1A8ED4"/>
+            <!-- Tangan isyarat kiri - membentuk huruf -->
+            <g transform="translate(40, 80)">
+              <rect x="0" y="0" width="22" height="8" rx="4" fill="#1A8ED4"/>
+              <rect x="0" y="10" width="8" height="20" rx="4" fill="#1A8ED4"/>
+              <rect x="14" y="10" width="8" height="14" rx="4" fill="#1A8ED4"/>
+            </g>
+            <!-- Tangan kanan terangkat -->
+            <line x1="94" y1="74" x2="114" y2="64" stroke="#1A8ED4" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="114" cy="62" r="8" fill="#1A8ED4"/>
+            <!-- Kaki -->
+            <rect x="68" y="104" width="10" height="26" rx="5" fill="#1A8ED4"/>
+            <rect x="82" y="104" width="10" height="26" rx="5" fill="#1A8ED4"/>
+            <!-- Gelombang suara kecil -->
+            <path d="M 118 52 Q 126 58 118 64" fill="none" stroke="#1A8ED4" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+            <path d="M 122 48 Q 134 58 122 68" fill="none" stroke="#1A8ED4" stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+          <div class="ilustrasi-label">Bahasa Isyarat</div>
+        </div>
+
+        <!-- Figur 4: Orang berdiri sejajar (inklusi) -->
+        <div class="ilustrasi-item">
+          <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg" class="float-4">
+            <circle cx="80" cy="100" r="64" fill="#EEEDFE"/>
+            <!-- Figur kiri (disabilitas) -->
+            <circle cx="56" cy="44" r="12" fill="#7F77DD"/>
+            <rect x="47" y="58" width="18" height="34" rx="8" fill="#7F77DD"/>
+            <line x1="47" y1="70" x2="34" y2="80" stroke="#7F77DD" stroke-width="6" stroke-linecap="round"/>
+            <rect x="43" y="90" width="8" height="20" rx="4" fill="#7F77DD"/>
+            <rect x="55" y="90" width="8" height="20" rx="4" fill="#7F77DD"/>
+            <!-- Tangan kanan figur kiri menggapai -->
+            <line x1="65" y1="70" x2="78" y2="76" stroke="#7F77DD" stroke-width="6" stroke-linecap="round"/>
+
+            <!-- Figur kanan (tanpa disabilitas) -->
+            <circle cx="106" cy="44" r="12" fill="#0F6E56"/>
+            <rect x="97" y="58" width="18" height="34" rx="8" fill="#0F6E56"/>
+            <line x1="115" y1="70" x2="128" y2="80" stroke="#0F6E56" stroke-width="6" stroke-linecap="round"/>
+            <rect x="99" y="90" width="8" height="20" rx="4" fill="#0F6E56"/>
+            <rect x="111" y="90" width="8" height="20" rx="4" fill="#0F6E56"/>
+            <!-- Tangan kiri figur kanan menggapai -->
+            <line x1="97" y1="70" x2="84" y2="76" stroke="#0F6E56" stroke-width="6" stroke-linecap="round"/>
+
+            <!-- Tangan bertemu di tengah -->
+            <circle cx="81" cy="77" r="7" fill="#FAC775"/>
+            <!-- Bintang inklusi -->
+            <text x="76" y="155" font-size="22" fill="#7F77DD">🤝</text>
+          </svg>
+          <div class="ilustrasi-label">Bersama & Setara</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PERUBAHAN #2: Hiasan 4 kartu visual -->
+    <div class="hiasan-grid">
+      <div class="hiasan-kartu" style="background: linear-gradient(135deg, #0F6E56, #1AAD7A);">
+        <div class="hiasan-ikon">♿</div>
+        <h4>Aksesibilitas</h4>
+        <p>Lingkungan yang ramah untuk semua individu</p>
+      </div>
+      <div class="hiasan-kartu" style="background: linear-gradient(135deg, #1A8ED4, #5BB8F5);">
+        <div class="hiasan-ikon">💼</div>
+        <h4>Ketenagakerjaan</h4>
+        <p>Peluang kerja setara bagi penyandang disabilitas</p>
+      </div>
+      <div class="hiasan-kartu" style="background: linear-gradient(135deg, #BA7517, #F0A83A);">
+        <div class="hiasan-ikon">🤝</div>
+        <h4>Pemberdayaan</h4>
+        <p>Penguatan potensi dan kemandirian individu</p>
+      </div>
+      <div class="hiasan-kartu" style="background: linear-gradient(135deg, #7F77DD, #B8B3F5);">
+        <div class="hiasan-ikon">⚖️</div>
+        <h4>Kesetaraan</h4>
+        <p>Hak yang sama tanpa diskriminasi</p>
+      </div>
+    </div>
+
+    <p class="teks-justify">
+      <strong>SETARA</strong> atau <strong>Sistem Edukasi dan Akses Tenaga Kerja Disabilitas</strong> adalah platform digital pemberdayaan yang dirancang untuk memperkuat keberfungsian sosial penyandang disabilitas di sektor ketenagakerjaan. Berdasarkan UU No. 8 Tahun 2016 tentang Penyandang Disabilitas, kami menyediakan kesempatan pelatihan keterampilan serta akses informasi lowongan kerja yang ramah disabilitas, guna mendorong terciptanya ekosistem kerja yang inklusif dan berkeadilan.
+    </p>
+    <p class="teks-justify">
+      Melalui SETARA, kami tidak hanya menyajikan data, tetapi membangun harapan. Kami hadir untuk memastikan bahwa tidak ada lagi potensi yang terbuang hanya karena hambatan akses informasi. Kami percaya, setiap individu memiliki hak yang sama untuk berkarya dan mandiri — karena <em>bukan tentang kita, tanpa kita</em>.
     </p>
   </div>
 
@@ -362,9 +671,11 @@
     <div class="seksi" id="pengertian">
       <span class="seksi-label">Pengertian</span>
       <h2>Apa itu Disabilitas?</h2>
-      <p>
-        Disabilitas adalah kondisi di mana seseorang mengalami keterbatasan fisik, intelektual, mental, dan/atau sensorik dalam jangka waktu lama yang dapat menghambat partisipasi penuh dalam masyarakat.
-        Di Indonesia, hak penyandang disabilitas dilindungi oleh <strong>UU No. 8 Tahun 2016</strong>.
+      <p class="teks-justify">
+        Disabilitas adalah kondisi di mana seseorang mengalami keterbatasan fisik, intelektual, mental, dan/atau sensorik dalam jangka waktu lama yang dapat menghambat partisipasi penuh dalam masyarakat. Pemahaman modern memandang disabilitas bukan semata sebagai "kekurangan individu", melainkan sebagai hasil interaksi antara kondisi seseorang dengan hambatan yang ada di lingkungan sekitarnya.
+      </p>
+      <p class="teks-justify" style="margin-bottom: 0;">
+        Di Indonesia, hak penyandang disabilitas secara tegas dilindungi oleh <strong>UU No. 8 Tahun 2016</strong> tentang Penyandang Disabilitas, yang menjamin kesamaan kesempatan di bidang pendidikan, pekerjaan, kesehatan, dan kehidupan sosial budaya.
       </p>
     </div>
   </div>
@@ -373,30 +684,30 @@
   <div class="seksi" id="jenis">
     <span class="seksi-label">Jenis</span>
     <h2>Jenis-Jenis Disabilitas</h2>
-    <p>Setiap individu memiliki kebutuhan dan potensi yang unik.</p>
+    <p class="teks-justify" style="margin-bottom: 40px;">Disabilitas hadir dalam beragam bentuk. Setiap individu memiliki kebutuhan dan potensi yang unik — inklusivitas berarti mengakui keberagaman ini.</p>
     <div class="kartu-grid">
       <div class="kartu">
         <div class="kartu-ikon">🦽</div>
         <h3>1. Disabilitas Fisik</h3>
-        <p>Keterbatasan fungsi gerak dan mobilitas tubuh.</p>
+        <p>Keterbatasan fungsi gerak dan mobilitas tubuh yang mempengaruhi kemampuan seseorang dalam bergerak atau menggunakan bagian tubuh tertentu.</p>
         <ul><li>Cerebral Palsy</li><li>Amputasi</li><li>Polio</li></ul>
       </div>
       <div class="kartu">
         <div class="kartu-ikon">👁️</div>
         <h3>2. Disabilitas Sensorik</h3>
-        <p>Keterbatasan fungsi penglihatan atau pendengaran.</p>
-        <ul><li>Tunanetra</li><li>Tunarungu</li></ul>
+        <p>Keterbatasan fungsi penglihatan atau pendengaran yang mempengaruhi cara seseorang memproses informasi dari lingkungan sekitar.</p>
+        <ul><li>Tunanetra (gangguan penglihatan)</li><li>Tunarungu (gangguan pendengaran)</li></ul>
       </div>
       <div class="kartu">
         <div class="kartu-ikon">🧠</div>
         <h3>3. Disabilitas Intelektual</h3>
-        <p>Keterbatasan fungsi intelektual dan perilaku adaptif.</p>
+        <p>Keterbatasan signifikan dalam fungsi intelektual dan perilaku adaptif yang mempengaruhi kemampuan belajar dan kehidupan sehari-hari.</p>
         <ul><li>Down Syndrome</li></ul>
       </div>
       <div class="kartu">
         <div class="kartu-ikon">💭</div>
         <h3>4. Disabilitas Mental</h3>
-        <p>Gangguan dalam fungsi pikir, emosi, dan perilaku.</p>
+        <p>Gangguan dalam fungsi pikir, emosi, dan perilaku yang dapat mempengaruhi kehidupan sehari-hari dan membutuhkan dukungan nyata.</p>
         <ul><li>Skizofrenia</li><li>Bipolar</li></ul>
       </div>
     </div>
@@ -407,31 +718,31 @@
     <div class="seksi" id="inklusi">
       <span class="seksi-label">Inklusi</span>
       <h2>Yang Perlu Diperhatikan dalam Inklusi</h2>
-      <p>Inklusi sejati menciptakan lingkungan di mana semua orang dapat berpartisipasi penuh.</p>
+      <p class="teks-justify" style="margin-bottom: 40px;">Inklusi sejati bukan sekadar menyediakan akses fisik, melainkan menciptakan lingkungan di mana setiap orang dapat berpartisipasi penuh, setara, dan bermartabat dalam semua aspek kehidupan.</p>
       <div class="inklusi-grid">
         <div class="inklusi-item">
           <div class="inklusi-nomor">1</div>
-          <div><h4>Aksesibilitas Fisik</h4><p>Ramp kursi roda, lift, guiding block, toilet aksesibel.</p></div>
+          <div><h4>Aksesibilitas Fisik</h4><p>Ramp kursi roda, lift, guiding block, dan toilet aksesibel yang memungkinkan mobilitas mandiri.</p></div>
         </div>
         <div class="inklusi-item">
           <div class="inklusi-nomor">2</div>
-          <div><h4>Aksesibilitas Komunikasi</h4><p>Bahasa isyarat, braille, subtitle, audio deskripsi.</p></div>
+          <div><h4>Aksesibilitas Komunikasi</h4><p>Bahasa isyarat, braille, subtitle, dan audio deskripsi untuk memastikan informasi dapat diakses semua orang.</p></div>
         </div>
         <div class="inklusi-item">
           <div class="inklusi-nomor">3</div>
-          <div><h4>Akomodasi di Tempat Kerja</h4><p>Fleksibilitas jadwal, teknologi assistif, modifikasi tugas.</p></div>
+          <div><h4>Akomodasi di Tempat Kerja</h4><p>Fleksibilitas jadwal, teknologi assistif, dan modifikasi tugas yang wajar tanpa membebani secara tidak proporsional.</p></div>
         </div>
         <div class="inklusi-item">
           <div class="inklusi-nomor">4</div>
-          <div><h4>Pendidikan Inklusif</h4><p>Semua anak berhak mendapat pendidikan berkualitas.</p></div>
+          <div><h4>Pendidikan Inklusif</h4><p>Semua anak berhak mendapat pendidikan berkualitas di lingkungan yang mendukung dengan guru pendamping khusus.</p></div>
         </div>
         <div class="inklusi-item">
           <div class="inklusi-nomor">5</div>
-          <div><h4>Eliminasi Stigma</h4><p>Ubah pandangan dari belas kasihan menjadi penghormatan hak.</p></div>
+          <div><h4>Eliminasi Stigma</h4><p>Ubah pandangan dari belas kasihan menjadi penghormatan hak — libatkan penyandang disabilitas dalam setiap pengambilan keputusan.</p></div>
         </div>
         <div class="inklusi-item">
           <div class="inklusi-nomor">6</div>
-          <div><h4>Perlindungan Hukum</h4><p>Hak dijamin oleh UU No. 8/2016 di semua bidang kehidupan.</p></div>
+          <div><h4>Perlindungan Hukum</h4><p>Hak dijamin oleh UU No. 8/2016 di semua bidang kehidupan — pahami dan advokasikan hak-hak ini bersama.</p></div>
         </div>
       </div>
     </div>
@@ -441,7 +752,7 @@
   <div class="seksi" id="rekrutmen">
     <span class="seksi-label">Rekrutmen</span>
     <h2>Rekrutmen Kerja untuk Disabilitas</h2>
-    <p>Perusahaan inklusif yang membuka peluang bagi penyandang disabilitas.</p>
+    <p class="teks-justify" style="margin-bottom: 40px;">Perusahaan-perusahaan inklusif berikut membuka peluang nyata bagi penyandang disabilitas. Temukan posisi yang sesuai dengan potensi dan keahlian Anda.</p>
     <div class="rekrutmen-grid">
       <div class="rekrutmen-kartu">
         <p class="nama-perusahaan">Tokopedia</p>
@@ -464,13 +775,14 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px; max-width:900px; margin:0 auto 32px; text-align:left;">
+    <div class="footer-grid">
       <div>
-        <p style="color:white; font-weight:800; font-size:18px; margin-bottom:8px;">SET<span>A</span>RA</p>
-        <p style="font-style:italic;">Bukan tentang kita, tanpa kita.</p>
+        <p style="color:white; font-weight:800; font-size:20px; margin-bottom:8px; letter-spacing:-0.5px;">SET<span>A</span>RA</p>
+        <p style="font-style:italic; margin-bottom:12px;">Bukan tentang kita, tanpa kita.</p>
+        <p style="font-size:12px; line-height:1.6;">Platform digital pemberdayaan penyandang disabilitas Indonesia.</p>
       </div>
       <div>
-        <p style="color:white; font-weight:700; margin-bottom:12px;">Tim Kami</p>
+        <p style="color:white; font-weight:700; margin-bottom:12px;">Tim Pengembang</p>
         <p style="margin-bottom:6px;">Michel Ade Sasra</p>
         <p style="margin-bottom:6px;">Viera Fitria Hapsari</p>
         <p style="margin-bottom:6px;">Rendaprila Kalintang</p>
@@ -479,11 +791,11 @@
       </div>
       <div>
         <p style="color:white; font-weight:700; margin-bottom:12px;">Alamat</p>
-        <p style="margin-bottom:6px;">Politeknik Kesejahteraan Sosial Bandung</p>
-        <p style="font-size:13px; line-height:1.6;">Jl. Ir. H. Juanda No.367, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135</p>
+        <p style="margin-bottom:6px; font-weight:600; color:rgba(255,255,255,0.8);">Politeknik Kesejahteraan Sosial Bandung</p>
+        <p style="font-size:13px; line-height:1.7;">Jl. Ir. H. Juanda No.367, Dago, Kec. Coblong, Kota Bandung, Jawa Barat 40135</p>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:24px;">
+    <div class="footer-divider">
       <p>© 2026 <span>SETARA</span> — Dibuat untuk Indonesia yang inklusif.</p>
     </div>
   </div>
@@ -497,11 +809,11 @@
         <p class="modal-subjudul" id="modal-nama-posisi">Posisi: —</p>
         <div class="form-grup">
           <label>Nama Lengkap *</label>
-          <input type="text" placeholder="Contoh: Budi Santoso">
+          <input type="text" placeholder="Contoh: Tulip Tulalip">
         </div>
         <div class="form-grup">
           <label>Email *</label>
-          <input type="email" placeholder="Contoh: budi@email.com">
+          <input type="email" placeholder="Contoh: TulipTulalip@email.com">
         </div>
         <div class="form-grup">
           <label>Nomor HP / WhatsApp *</label>
@@ -528,21 +840,23 @@
           <label>Pengalaman Kerja / Pendidikan Terakhir *</label>
           <textarea placeholder="Contoh: Lulusan Politeknik Kesejahteraan Sosial Bandung 2020. Pernah magang di SLB Bandung selama 3 bulan."></textarea>
         </div>
-       <div class="form-grup">
+        <div class="form-grup">
           <label>Upload CV (PDF/Word) *</label>
           <input type="file" accept=".pdf,.doc,.docx">
         </div>
-
         <div class="form-grup">
           <label>🎬 Tutorial Membuat CV yang Baik</label>
           <div style="border-radius:8px; overflow:hidden; margin-top:4px;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/ujPEb8f8huQ?si=OlVeI6xlmNrzzyYP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/ujPEb8f8huQ?si=OlVeI6xlmNrzzyYP"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:block; border:none;">
+            </iframe>
           </div>
           <p style="font-size:12px; color:#888780; margin-top:6px;">Tonton panduan ini sebelum mengupload CV Anda.</p>
         </div>
-<button class="form-kirim" onclick="kirimLamaran()">Kirim Lamaran ✉️</button>
+        <button class="form-kirim" onclick="kirimLamaran()">Kirim Lamaran ✉️</button>
       </div>
-
       <div class="pesan-sukses" id="pesan-sukses">
         <div class="ikon-sukses">🎉</div>
         <h3>Lamaran Terkirim!</h3>
@@ -553,20 +867,13 @@
     </div>
   </div>
 
-  <!-- TOMBOL AKSESIBILITAS (pojok kanan bawah) -->
-
-  <!-- TOMBOL AKSESIBILITAS (pojok kanan bawah) -->
+  <!-- TOMBOL AKSESIBILITAS -->
   <button class="akses-btn" onclick="toggleAkses()" title="Pengaturan Aksesibilitas">
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-      <!-- Kepala -->
       <circle cx="12" cy="3" r="2"/>
-      <!-- Tangan kiri dan kanan terbuka -->
       <line x1="4" y1="8.5" x2="20" y2="8.5" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Badan -->
       <line x1="12" y1="8.5" x2="12" y2="14" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Kaki kiri -->
       <line x1="12" y1="14" x2="8" y2="21" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-      <!-- Kaki kanan -->
       <line x1="12" y1="14" x2="16" y2="21" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
     </svg>
   </button>
@@ -574,7 +881,6 @@
   <!-- PANEL AKSESIBILITAS -->
   <div class="akses-panel" id="akses-panel">
     <h4>♿ Aksesibilitas</h4>
-
     <div class="akses-baris">
       <div class="akses-kiri">
         <span>🔊 Baca Halaman</span>
@@ -585,7 +891,6 @@
         <button class="btn-stop" onclick="stopTTS()">⏹</button>
       </div>
     </div>
-
     <div class="akses-baris">
       <div class="akses-kiri">
         <span>🔡 Ukuran Teks</span>
@@ -597,7 +902,6 @@
         <button onclick="ubahTeks(10)">+</button>
       </div>
     </div>
-
     <div class="akses-baris">
       <div class="akses-kiri">
         <span>◑ Kontras Tinggi</span>
@@ -625,9 +929,13 @@
       input.value = '';
       box.scrollTop = box.scrollHeight;
       setTimeout(() => {
+        const pesanEncoded = encodeURIComponent('Halo Tim SETARA, saya ingin bertanya: ' + pesan);
         const balas = document.createElement('div');
-        balas.style.cssText = 'background:#E1F5EE;border-radius:12px 12px 12px 0;padding:10px 14px;font-size:13px;max-width:85%;';
-        balas.innerHTML = 'Terima kasih pesannya! Kami akan segera menghubungi Anda. Atau langsung hubungi via <a href="https://wa.me/6281234567890" target="_blank" style="color:#0F6E56;font-weight:700;">WhatsApp</a>.';
+        balas.style.cssText = 'background:#E1F5EE;border-radius:12px 12px 12px 0;padding:10px 14px;font-size:13px;max-width:90%;line-height:1.5;';
+        balas.innerHTML = 'Terima kasih pesannya! 😊 Klik tombol di bawah untuk lanjut chat dengan tim kami di WhatsApp.<br><br>'
+          + '<a href="https://wa.me/6281325026288?text=' + pesanEncoded + '" target="_blank" '
+          + 'style="display:inline-block;background:#25D366;color:white;padding:8px 16px;border-radius:20px;text-decoration:none;font-weight:700;font-size:12px;">'
+          + '💬 Lanjut di WhatsApp</a>';
         box.appendChild(balas);
         box.scrollTop = box.scrollHeight;
       }, 800);
@@ -655,8 +963,6 @@
     function toggleAkses() {
       document.getElementById('akses-panel').classList.toggle('aktif');
     }
-
-    // 1. Text-to-Speech
     function mulaiTTS() {
       if (!('speechSynthesis' in window)) {
         alert('Browser Anda tidak mendukung fitur baca teks. Gunakan Google Chrome.');
@@ -673,16 +979,12 @@
     function stopTTS() {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
     }
-
-    // 2. Ukuran teks
     let ukuranSaat = 100;
     function ubahTeks(delta) {
       ukuranSaat = Math.min(160, Math.max(70, ukuranSaat + delta));
       document.body.style.fontSize = ukuranSaat + '%';
       document.getElementById('persen-teks').textContent = ukuranSaat + '%';
     }
-
-    // 3. Kontras tinggi
     let kontrasAktif = false;
     function toggleKontras() {
       kontrasAktif = !kontrasAktif;
